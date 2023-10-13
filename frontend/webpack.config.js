@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
+
 dotenv.config();
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -60,10 +61,7 @@ module.exports = {
       template: 'public/index.html',
       minify:
         process.env.NODE_ENV === 'production'
-          ? {
-              collapseWhitespace: true,
-              removeComments: true,
-            }
+          ? { collapseWhitespace: true, removeComments: true }
           : false,
     }),
     new CleanWebpackPlugin(),
