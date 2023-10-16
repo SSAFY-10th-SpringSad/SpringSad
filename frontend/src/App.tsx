@@ -1,5 +1,15 @@
+import styled from '@emotion/styled';
+import Router from './route/Router';
+
+import color from './styles/colorVar';
+
+const GlobalStyle = styled.div``;
 function App() {
-  return <div>Hello, Spring Sad</div>;
+  return (
+    <GlobalStyle>
+      <Router />
+    </GlobalStyle>
+  );
 }
 
 export default App;
