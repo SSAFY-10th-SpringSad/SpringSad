@@ -1,4 +1,3 @@
-import { theme } from '@/styles/Theme';
 import * as S from './index.styled';
 
 function Header() {
