@@ -1,53 +1,69 @@
 package com.spring.sad.member.domain;
 
 import com.spring.sad.global.domain.BaseEntity;
+import com.spring.sad.notification.domain.Notification;
+import com.spring.sad.post.domain.Comment;
+import com.spring.sad.post.domain.Post;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @Entity
 public class Member extends BaseEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    private long id;
-    private String memberName;
-    private String memberPassword;
+    private long memberId;
+
+    private String name;
+
+    private String password;
 
     @Email
-    private String memberEmail;
+    private String email;
 
-    private String memberCellPhone;
+    private String cellPhone;
 
     @Enumerated(EnumType.STRING)
-    private Gender memberGender;
+    private Gender gender;
 
-    private String memberBirthday;
+    private String birthday;
 
-    private String memberRegDate;
+    private Boolean isDeleted;
 
-    private String memberModDate;
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Profile> profiles = new ArrayList<>();
 
-    private Boolean memberDeleted;
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<MemberBand> memberBands = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Notification> notifications = new ArrayList<>();
 
     @Builder
-    public Member(
-            String memberName,
-            String memberPassword,
-            String memberEmail,
-            String memberCellPhone,
-            Gender memberGender,
-            String memberBirthday) {
-        this.memberName = memberName;
-        this.memberPassword = memberPassword;
-        this.memberEmail = memberEmail;
-        this.memberCellPhone = memberCellPhone;
-        this.memberGender = memberGender;
-        this.memberBirthday = memberBirthday;
+    public Member(String name,
+                  String password,
+                  String email,
+                  String cellPhone,
+                  Gender gender,
+                  String birthday) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.cellPhone = cellPhone;
+        this.gender = gender;
+        this.birthday = birthday;
     }
 }
