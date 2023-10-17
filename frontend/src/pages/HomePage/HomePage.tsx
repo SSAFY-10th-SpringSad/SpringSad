@@ -1,5 +1,4 @@
-import Header from '@/components/Header/Header';
-import React from 'react';
+import Header from '@/components/Header';
 
 type Props = {};
 

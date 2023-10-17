@@ -1,14 +1,13 @@
-import styled from '@emotion/styled';
-import Router from './route/Router';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from './styles/Theme';
+import Header from './components/Header';
 
-import color from './styles/colorVar';
-
-const GlobalStyle = styled.div``;
 function App() {
   return (
-    <GlobalStyle>
-      <Router />
-    </GlobalStyle>
+    <ThemeProvider theme={theme}>
+      <Header></Header>
+      <div>Hello, Spring Sad</div>
+    </ThemeProvider>
   );
 }
 
