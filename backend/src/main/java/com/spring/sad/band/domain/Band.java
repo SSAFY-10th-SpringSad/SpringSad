@@ -1,6 +1,7 @@
 package com.spring.sad.band.domain;
 
 import com.spring.sad.album.domain.Album;
+import com.spring.sad.band.domain.enums.VisibilityEnum;
 import com.spring.sad.category.domain.Category;
 import com.spring.sad.image.domain.Image;
 import com.spring.sad.member.domain.MemberBand;
@@ -10,7 +11,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class Band {
 
     private String cover;
 
-    private String visibility;
+    private VisibilityEnum visibility;
 
     @OneToMany(mappedBy = "band", fetch = FetchType.LAZY)
     private List<Post> postList = new ArrayList<>();
@@ -50,7 +50,7 @@ public class Band {
             Category category,
             String name,
             String cover,
-            String visibility) {
+            VisibilityEnum visibility) {
 
         this.id = id;
         this.name = name;
