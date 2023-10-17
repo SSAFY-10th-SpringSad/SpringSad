@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 const HeaderContainer = styled.header`
   width: 100vw;
   box-sizing: border-box;
+  border-bottom: 1px solid #f2f2f2;
 `;
 const HeaderInner = styled.div`
   margin: 0 auto;
@@ -10,7 +11,6 @@ const HeaderInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #f2f2f2;
 `;
 
 const LogoSearchWrapper = styled.div`
@@ -42,7 +42,7 @@ const SearchInput = styled.input`
 const SearchIconWrapper = styled.div`
   position: absolute;
   top: 15%;
-  left: 100%;
+  left: 90%;
   font-size: 15px;
 `;
 
