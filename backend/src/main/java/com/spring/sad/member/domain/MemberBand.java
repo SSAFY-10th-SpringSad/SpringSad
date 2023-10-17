@@ -15,15 +15,15 @@ public class MemberBand {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberBands")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberBands")
+    @JoinColumn(name = "band_id")
     private Band band;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memberBands")
+    @JoinColumn(name = "profile_id")
     private Profile profile;
 
     @Builder

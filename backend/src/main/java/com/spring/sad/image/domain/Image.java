@@ -20,7 +20,7 @@ public class Image {
     private long imgId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "images")
+    @JoinColumn(name = "band_id")
     private Band band;
 
     private String imgSrc;

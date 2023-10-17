@@ -14,19 +14,19 @@ public class Notification {
     private long notificationId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "notifications")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     private String content;
 
     private Boolean isRead;
 
-    private String referenceId;
+    private String referenceUrl;
 
-    public Notification(Member member, String content, String referenceId) {
+    public Notification(Member member, String content, String referenceUrl) {
         addRelateMember(member);
         this.content = content;
-        this.referenceId = referenceId;
+        this.referenceUrl = referenceUrl;
     }
 
     private void addRelateMember(Member member) {

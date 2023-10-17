@@ -15,11 +15,11 @@ public class PostImage {
     private long postImageId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "postImages")
+    @JoinColumn(name = "post_id")
     private Post post;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "postImages")
+    @JoinColumn(name = "image_id")
     private Image image;
 
     @Builder

@@ -20,11 +20,11 @@ public class Post extends BaseEntity {
     private long postId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "posts")
+    @JoinColumn(name = "band_id")
     private Band band;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "posts")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     private String postContent;

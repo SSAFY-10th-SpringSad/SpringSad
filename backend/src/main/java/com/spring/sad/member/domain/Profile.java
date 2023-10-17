@@ -17,13 +17,12 @@ public class Profile {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profiles")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @Column(nullable = false, length = 20)
     private String profileName;
 
-    @Column(nullable = false, length = 200)
     private String profileImg;
 
     private Boolean profileDefault;

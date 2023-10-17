@@ -18,7 +18,7 @@ public class Album {
     private long albumId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "albums")
+    @JoinColumn(name = "band_id")
     private Band band;
 
     @OneToMany(mappedBy = "album", fetch = FetchType.LAZY)

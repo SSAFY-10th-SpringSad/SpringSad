@@ -17,7 +17,7 @@ public class AlbumImage {
     private long albumImgId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "albumImages")
+    @JoinColumn(name = "album_id")
     private Album album;
 
     @OneToOne(fetch = FetchType.LAZY)

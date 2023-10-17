@@ -21,7 +21,7 @@ public class Band {
     private long bandId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bands")
+    @JoinColumn(name = "category_id")
     private Category category;
 
     private String bandName;
