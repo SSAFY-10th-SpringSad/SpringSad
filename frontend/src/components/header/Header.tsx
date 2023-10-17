@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as S from './index.styled';
+import * as S from './Header.styled';
 import logo from '../../assets/logo/bandLogo.png';
 
 function Header() {
