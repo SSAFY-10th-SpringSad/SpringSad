@@ -27,8 +27,7 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Band> bandList = new ArrayList<>();
 
-    @Builder public Category(int id, String name) {
-        this.id = id;
+    @Builder public Category(String name) {
         this.name = name;
     }
 }

@@ -7,7 +7,6 @@ import com.spring.sad.notification.domain.Notification;
 import com.spring.sad.post.domain.Post;
 import com.spring.sad.profile.domain.Profile;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,17 +26,13 @@ public class Member extends BaseEntity {
     private int id;
 
     @Column(nullable = false)
-    @NotBlank
     private String name;
 
     @Column(nullable = false)
-    @NotBlank
     private String password;
 
-    @NotBlank
     private String email;
 
-    @NotBlank
     private String cellPhone;
 
     @Enumerated(EnumType.STRING)

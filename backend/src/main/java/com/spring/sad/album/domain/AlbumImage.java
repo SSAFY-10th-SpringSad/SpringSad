@@ -25,8 +25,7 @@ public class AlbumImage {
     private Image image;
 
     @Builder
-    public AlbumImage(int id, Album album, Image image) {
-        this.id = id;
+    public AlbumImage(Album album, Image image) {
         this.image = image;
         addRelatedAlbum(album);
     }

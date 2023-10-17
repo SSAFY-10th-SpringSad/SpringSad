@@ -28,12 +28,10 @@ public class Notification {
 
     @Builder
     public Notification(
-            int id,
             String content,
             boolean isRead,
             String referenceId,
             Member member) {
-        this.id = id;
         this.content = content;
         this.isRead = isRead;
         this.referenceId = referenceId;

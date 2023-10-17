@@ -36,12 +36,10 @@ public class Profile {
 
     @Builder
     public Profile(
-            int id,
             String name,
             String imgSrc,
             boolean isDefault,
             Member member) {
-        this.id = id;
         this.name = name;
         this.imgSrc = imgSrc;
         this.isRepresentation = isDefault;

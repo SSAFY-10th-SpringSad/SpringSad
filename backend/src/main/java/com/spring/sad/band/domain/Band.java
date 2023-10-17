@@ -33,6 +33,7 @@ public class Band {
 
     private String cover;
 
+    @Enumerated(EnumType.STRING)
     private VisibilityEnum visibility;
 
     @OneToMany(mappedBy = "band")
@@ -48,13 +49,10 @@ public class Band {
     private List<Image> imageList = new ArrayList<>();
 
     public Band(
-            int id,
             Category category,
             String name,
             String cover,
             VisibilityEnum visibility) {
-
-        this.id = id;
         this.name = name;
         this.cover = cover;
         this.visibility = visibility;

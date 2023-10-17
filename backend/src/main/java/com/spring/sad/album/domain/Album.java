@@ -28,8 +28,7 @@ public class Album {
     private List<AlbumImage> albumImageList = new ArrayList<>();
 
     @Builder
-    public Album(int id, Band band) {
-        this.id = id;
+    public Album(Band band) {
         addRelatedBand(band);
     }
 
