@@ -35,16 +35,16 @@ public class Band {
 
     private VisibilityEnum visibility;
 
-    @OneToMany(mappedBy = "band", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "band")
     private List<Post> postList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "memberBand", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "memberBand")
     private List<MemberBand> memberBandList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "album",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "album")
     private List<Album> albumList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "image")
     private List<Image> imageList = new ArrayList<>();
 
     public Band(

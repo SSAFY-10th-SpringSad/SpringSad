@@ -24,7 +24,7 @@ public class Album {
     @JoinColumn(name = "band_id")
     private Band band;
 
-    @OneToMany(mappedBy = "album", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "album")
     private List<AlbumImage> albumImageList = new ArrayList<>();
 
     @Builder
