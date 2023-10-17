@@ -1,5 +1,3 @@
-// import { css } from '@emotion/react';
-
 const theme = {
   colors: {
     mainColorBlue_1: '#1AB0E6',
@@ -16,4 +14,4 @@ const theme = {
   },
 };
 
-export { theme };
+export default theme;

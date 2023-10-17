@@ -5,6 +5,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import * as S from './index.styled';
 import logo from '../../assets/logo/bandLogo.png';
 

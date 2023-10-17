@@ -1,7 +1,3 @@
-import React from 'react';
-
-type Props = {};
-
-export default function BandDetailPage({}: Props) {
+export default function BandDetailPage() {
   return <div>BandDetailPage</div>;
 }
