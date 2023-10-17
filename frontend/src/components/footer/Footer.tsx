@@ -1,4 +1,4 @@
-import * as S from './index.styled';
+import * as S from './Footer.styled';
 
 function Footer() {
   return (

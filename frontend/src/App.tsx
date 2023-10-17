@@ -1,18 +1,16 @@
 import { ThemeProvider } from '@emotion/react';
 import theme from './styles/Theme';
 
-import Header from './components/header';
+import Header from './components/header/Header';
 import Footer from './components/footer';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Header />
-        <div>Hello, Spring Sad</div>
-        <Footer />
-      </BrowserRouter>
+      <Header />
+      <div>Hello, Spring Sad</div>
+      <Footer />
     </ThemeProvider>
   );
 }
