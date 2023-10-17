@@ -7,6 +7,7 @@ import com.spring.sad.image.domain.Image;
 import com.spring.sad.member.domain.MemberBand;
 import com.spring.sad.post.domain.Post;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Band {
     private Category category;
 
     @Column(nullable = false)
+    @NotBlank
     private String name;
 
     private String cover;

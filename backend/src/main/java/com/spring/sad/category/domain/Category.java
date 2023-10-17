@@ -2,6 +2,7 @@ package com.spring.sad.category.domain;
 
 import com.spring.sad.band.domain.Band;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Category {
     @Column(name = "category_id")
     private int id;
 
+    @NotBlank
     private String name;
 
     @OneToMany(mappedBy = "category")
