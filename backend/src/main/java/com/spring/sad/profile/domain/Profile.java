@@ -24,13 +24,12 @@ public class Profile {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
     private String imgSrc;
 
-    private boolean isDefault;
+    private boolean isRepresentation;
 
     @OneToMany(mappedBy = "profile")
     private List<MemberBand> memberBandList = new ArrayList<>();
@@ -45,7 +44,7 @@ public class Profile {
         this.id = id;
         this.name = name;
         this.imgSrc = imgSrc;
-        this.isDefault = isDefault;
+        this.isRepresentation = isDefault;
         addRelatedMember(member);
     }
 
