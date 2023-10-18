@@ -1,9 +1,9 @@
 package com.spring.sad.image.domain;
 
-import com.spring.sad.album.domain.AlbumImage;
 import com.spring.sad.band.domain.Band;
 import com.spring.sad.post.domain.PostImage;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Image {
     @Id

@@ -2,11 +2,12 @@ package com.spring.sad.notification.domain;
 
 import com.spring.sad.member.domain.Member;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Notification {
     @Id

@@ -2,12 +2,13 @@ package com.spring.sad.member.domain;
 
 import com.spring.sad.band.domain.Band;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class MemberBand {
     @Id

@@ -2,14 +2,13 @@ package com.spring.sad.album.domain;
 
 import com.spring.sad.image.domain.Image;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.awt.*;
-
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class AlbumImage {
     @Id

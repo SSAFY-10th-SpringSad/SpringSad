@@ -5,7 +5,7 @@ import com.spring.sad.notification.domain.Notification;
 import com.spring.sad.post.domain.Comment;
 import com.spring.sad.post.domain.Post;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Member extends BaseEntity {
     @Id
@@ -25,7 +25,6 @@ public class Member extends BaseEntity {
 
     private String password;
 
-    @Email
     private String email;
 
     private String cellPhone;
