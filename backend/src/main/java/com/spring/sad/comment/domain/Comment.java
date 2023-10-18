@@ -1,10 +1,11 @@
 package com.spring.sad.comment.domain;
 
 import com.spring.sad.BaseTimeEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.spring.sad.member.domain.Member;
+import com.spring.sad.post.domain.Post;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,14 +17,25 @@ import java.time.LocalDateTime;
 public class Comment extends BaseTimeEntity {
     @Id
     @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int commentId;
 
-    @Column(nullable = false)
-    private int postID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private Post post;
 
-    @Column(nullable = false)
-    private int authorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @Column(nullable = false)
     private String content;
+
+    @Builder
+    public Comment(int commentId, Post post, Member member, String content){
+        this.commentId = commentId;
+        this.post = post;
+        this.member = member;
+        this.content = content;
+    }
 }
