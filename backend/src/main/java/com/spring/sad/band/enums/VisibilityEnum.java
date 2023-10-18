@@ -1,5 +1,6 @@
 package com.spring.sad.band.enums;
 
+import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
