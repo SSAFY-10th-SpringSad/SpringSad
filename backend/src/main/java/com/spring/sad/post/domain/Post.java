@@ -4,6 +4,7 @@ import com.spring.sad.band.domain.Band;
 import com.spring.sad.global.domain.BaseEntity;
 import com.spring.sad.member.domain.Member;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +12,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Post extends BaseEntity {
     @Id

@@ -3,12 +3,13 @@ package com.spring.sad.post.domain;
 import com.spring.sad.global.domain.BaseEntity;
 import com.spring.sad.member.domain.Member;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Comment extends BaseEntity {
     @Id

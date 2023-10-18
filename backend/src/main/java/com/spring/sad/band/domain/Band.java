@@ -5,6 +5,7 @@ import com.spring.sad.image.domain.Image;
 import com.spring.sad.member.domain.MemberBand;
 import com.spring.sad.post.domain.Post;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +13,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
 @Entity
 public class Band {
     @Id
