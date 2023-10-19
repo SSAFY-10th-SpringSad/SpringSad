@@ -122,6 +122,7 @@ const YearSelectButton = styled.button`
   height: 50px;
   margin-right: 10px;
   border-bottom: 1px solid lightgray;
+  cursor: default;
 `;
 const MonthSelectButton = styled.button`
   width: 25%;
@@ -129,12 +130,14 @@ const MonthSelectButton = styled.button`
   height: 50px;
   margin-right: 10px;
   border-bottom: 1px solid lightgray;
+  cursor: default;
 `;
 const DaySelectButton = styled.button`
   width: 25%;
   display: flex;
   height: 50px;
   border-bottom: 1px solid lightgray;
+  cursor: default;
 `;
 
 const SubmitButton = styled.button`
@@ -148,6 +151,8 @@ const SelectBox = styled.select`
   height: 40px;
   border: none;
   appearance: none;
+  text-align: center;
+  font-size: 30px;
 `;
 const Text = styled.span`
   width: 30%;
