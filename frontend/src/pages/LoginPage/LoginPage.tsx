@@ -1,8 +1,14 @@
 import Header from '@/components/Header/Header';
 import * as S from './LoginPage.styled';
 import { BROWSER_PATH } from '@/constants/path';
+import useInput from '@/hooks/useInput';
+import { requestLogin } from '@/apis/request/requestAuth';
+import useLogin from '@/hooks/useLogin';
 
 export default function LoginPage() {
+  const { email, onChangeEmail, password, onChangePassword, login } =
+    useLogin();
+
   return (
     <>
       <Header />
@@ -11,15 +17,19 @@ export default function LoginPage() {
           <S.Title>로그인</S.Title>
           <S.Form>
             <S.FormWrap>
-              <S.InputWrapper>
-                <S.EmailInput>
-                  <S.EmailLabel>이메일</S.EmailLabel>
-                  <S.Input placeholder="이메일" />
-                </S.EmailInput>
-              </S.InputWrapper>
+              <S.InputContainer>
+                <S.InputWrapper>
+                  <S.Label>이메일</S.Label>
+                  <S.Input onChange={onChangeEmail} placeholder="이메일" />
+                </S.InputWrapper>
+                <S.InputWrapper>
+                  <S.Label>패스워드</S.Label>
+                  <S.Input onChange={onChangePassword} placeholder="비밀번호" />
+                </S.InputWrapper>
+              </S.InputContainer>
             </S.FormWrap>
 
-            <S.LoginButton>확인</S.LoginButton>
+            <S.LoginButton onClick={login}>확인</S.LoginButton>
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
