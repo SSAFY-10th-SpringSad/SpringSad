@@ -3,7 +3,7 @@ import * as S from './EmailSignUpPage.styled';
 import Header from '@/components/Header/Header';
 type Props = {};
 
-export default function SignUpPage({}: Props) {
+export default function EmailSignUpPage({}: Props) {
   const year = new Date().getFullYear();
   const yearList = [...new Array(100)].map((_, i) => year - i);
   const monthList = [...new Array(12)].map((_, i) => i + 1);
