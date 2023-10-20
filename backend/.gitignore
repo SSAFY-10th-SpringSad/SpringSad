@@ -1,3 +1,6 @@
+### ymal security ###
+**/resources/security/*.yml
+
 HELP.md
 .gradle
 build/
