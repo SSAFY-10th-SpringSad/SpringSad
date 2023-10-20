@@ -11,12 +11,10 @@ const Form = styled.form`
   padding: 15px;
   padding-top: 50px;
   height: auto;
-  // background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // font-weight: thin;
 
   input {
     background-color: transparent;
