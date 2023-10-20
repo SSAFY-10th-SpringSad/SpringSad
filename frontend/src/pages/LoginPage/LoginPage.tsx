@@ -1,5 +1,6 @@
 import Header from '@/components/Header/Header';
 import * as S from './LoginPage.styled';
+import { BROWSER_PATH } from '@/constants/path';
 
 export default function LoginPage() {
   return (
@@ -22,7 +23,9 @@ export default function LoginPage() {
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
-            <S.NavigateSignUp to={'/signup'}>회원가입</S.NavigateSignUp>
+            <S.NavigateSignUp to={BROWSER_PATH.SIGN_UP}>
+              회원가입
+            </S.NavigateSignUp>
           </S.NavigateSignUpWrapper>
         </S.Content>
       </S.Container>
