@@ -29,13 +29,13 @@ const Form = styled.form`
 const FormWrap = styled.div`
   margin: 63px 0 34px;
 `;
-const InputWrapper = styled.div`
+const InputContainer = styled.div`
   border-bottom-color: #666;
   position: relative;
   border-bottom: 1px solid #ccc;
 `;
 
-const EmailInput = styled.div`
+const InputWrapper = styled.div`
   margin-bottom: 10px;
   display: -webkit-box;
   display: flex;
@@ -68,7 +68,7 @@ const Input = styled.input`
   line-height: normal;
 `;
 
-const EmailLabel = styled.label`
+const Label = styled.label`
   overflow: hidden !important;
   position: absolute !important;
   height: 1px !important;
@@ -113,10 +113,10 @@ export {
   Form,
   InputWrapper,
   LoginButton,
-  EmailInput,
+  InputContainer,
   NavigateSignUpWrapper,
   NavigateSignUp,
-  EmailLabel,
+  Label,
   Input,
   FormWrap,
   Content,
