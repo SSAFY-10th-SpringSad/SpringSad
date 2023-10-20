@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './SignUpPage.styled';
+import * as S from './PhoneSignUpPage.styled';
 import Header from '@/components/Header/Header';
 type Props = {};
 
