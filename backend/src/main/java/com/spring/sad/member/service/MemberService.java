@@ -38,14 +38,22 @@ public class MemberService {
     public ResponseMemberDto loginByPhoneNumber(RequestMemberDto request) {
         Member member = memberRepository.findByPhoneNumber(request.getPhoneNumber())
                 .orElseThrow(()->
-                    new MemberException(MemberErrorCode.NOT_EXIST_MEMBER));
+                    new MemberException(MemberErrorCode.LOGIN_FAILED));
+
+        if(!request.getPassword().equals(member.getPassword()))
+            throw new MemberException(MemberErrorCode.LOGIN_FAILED);
+
         return ResponseMemberDto.of(member);
     }
 
     public ResponseMemberDto loginByEmail(RequestMemberDto request) {
         Member member = memberRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->
-                        new MemberException(MemberErrorCode.NOT_EXIST_MEMBER));
+                        new MemberException(MemberErrorCode.LOGIN_FAILED));
+
+        if(!request.getPassword().equals(member.getPassword()))
+            throw new MemberException(MemberErrorCode.LOGIN_FAILED);
+
         return ResponseMemberDto.of(member);
     }
 }
