@@ -1,8 +1,6 @@
 import Header from '@/components/Header/Header';
 import * as S from './LoginPage.styled';
 import { BROWSER_PATH } from '@/constants/path';
-import useInput from '@/hooks/useInput';
-import { requestLogin } from '@/apis/request/requestAuth';
 import useLogin from '@/hooks/useLogin';
 
 export default function LoginPage() {
@@ -32,7 +30,7 @@ export default function LoginPage() {
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
-            <S.NavigateSignUp to={BROWSER_PATH.SIGN_UP}>
+            <S.NavigateSignUp to={BROWSER_PATH.EMAIL_SIGN_UP}>
               회원가입
             </S.NavigateSignUp>
           </S.NavigateSignUpWrapper>
