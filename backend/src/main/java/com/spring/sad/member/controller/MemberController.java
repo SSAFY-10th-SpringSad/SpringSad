@@ -1,12 +1,11 @@
 package com.spring.sad.member.controller;
 
 import com.spring.sad.member.dto.request.RequestMemberDto;
-import com.spring.sad.member.dto.request.RequestMemberSignUpByEmailDto;
+import com.spring.sad.member.dto.request.RequestMemberSignUpByEmail;
 import com.spring.sad.member.dto.request.RequestMemberSignUpByPhoneNumber;
 import com.spring.sad.member.dto.response.ResponseMemberDto;
 import com.spring.sad.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +37,7 @@ public class MemberController {
     }
 
     @PostMapping("/email-sign-up")
-    public ResponseEntity<ResponseMemberDto> signUpByEmail(@RequestBody RequestMemberSignUpByEmailDto request) {
+    public ResponseEntity<ResponseMemberDto> signUpByEmail(@RequestBody RequestMemberSignUpByEmail request) {
         ResponseMemberDto response = memberService.signUpByEmail(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
