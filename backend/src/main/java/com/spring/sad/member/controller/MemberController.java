@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 public class MemberController {
-    private MemberService memberService;
+    private final MemberService memberService;
 
     // 페이지 이동 GET 어케?
 
