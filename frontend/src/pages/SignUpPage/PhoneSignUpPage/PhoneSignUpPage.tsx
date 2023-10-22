@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import * as S from './PhoneSignUpPage.styled';
 import Header from '@/components/Header/Header';
 import useSignup from '@/hooks/useSignup';
+import { requestSignUp } from '@/apis/request/requestUser';
 type Props = {};
 
 export default function SignUpPage({}: Props) {
-  const { userData, onChnageUserData, signup } = useSignup();
+  const [userData, setUserData] = useState<RequestPhoneSignupUserType>({
+    phone: '',
+    password: '',
+    name: '',
+    birth: {
+      year: 0,
+      month: 0,
+      day: 0,
+    },
+  });
+
+  const onChnageUserData = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target;
+    if (name.startsWith('birth.')) {
+      const fieldName = name.split('.')[1];
+      setUserData(prevData => ({
+        ...prevData,
+        birth: {
+          ...prevData.birth,
+          [fieldName]: value,
+        },
+      }));
+    } else {
+      setUserData({
+        ...userData,
+        [name]: value,
+      });
+    }
+  };
+
+  const signup = () => {
+    requestSignUp(userData)
+      .then(() => {
+        alert('회원가입 성공');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   const year = new Date().getFullYear();
   const yearList = [...new Array(100)].map((_, i) => year - i);
