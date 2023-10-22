@@ -19,13 +19,13 @@ public class MemberController {
     // 페이지 이동 GET 어케?
 
     @PostMapping("/phone-login")
-    public ResponseEntity<ResponseMemberDto> loginByPhoneNumber(@RequestBody RequestMemberDto request) {
+    public ResponseEntity<ResponseMemberDto> loginByPhoneNumber(@RequestBody RequestMemberSignUpByPhoneNumber request) {
         ResponseMemberDto response = memberService.loginByPhoneNumber(request);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/email-login")
-    public ResponseEntity<ResponseMemberDto> loginByEmail(@RequestBody RequestMemberDto request) {
+    public ResponseEntity<ResponseMemberDto> loginByEmail(@RequestBody RequestMemberSignUpByEmail request) {
         ResponseMemberDto response = memberService.loginByEmail(request);
         return ResponseEntity.ok(response);
     }
