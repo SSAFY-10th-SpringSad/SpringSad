@@ -15,9 +15,7 @@ function useLogin() {
   };
 
   return {
-    email,
     onChangeEmail,
-    password,
     onChangePassword,
     login,
   };

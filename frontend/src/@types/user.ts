@@ -1,8 +1,15 @@
-type LoginUserType = {
+type RequestLoginUserType = {
   email: string;
   password: string;
 };
-type SignupUserType = {
+
+type RequestSignupUserType = {
   email: string;
   password: string;
+  name: string;
+  birth: {
+    year: number;
+    month: number;
+    day: number;
+  };
 };

@@ -6,8 +6,7 @@ import { requestLogin } from '@/apis/request/requestAuth';
 import useLogin from '@/hooks/useLogin';
 
 export default function LoginPage() {
-  const { email, onChangeEmail, password, onChangePassword, login } =
-    useLogin();
+  const { onChangeEmail, onChangePassword, login } = useLogin();
 
   return (
     <>
