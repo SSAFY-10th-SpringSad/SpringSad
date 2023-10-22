@@ -1,9 +1,6 @@
 package com.spring.sad.member.service;
 
-import com.spring.sad.global.exception.ErrorCode;
 import com.spring.sad.member.domain.Member;
-import com.spring.sad.member.domain.embedded.Email;
-import com.spring.sad.member.domain.embedded.PhoneNumber;
 import com.spring.sad.member.dto.request.RequestMemberDto;
 import com.spring.sad.member.dto.response.ResponseMemberDto;
 import com.spring.sad.member.exception.MemberErrorCode;
@@ -41,14 +38,14 @@ public class MemberService {
     public ResponseMemberDto loginByPhoneNumber(RequestMemberDto request) {
         Member member = memberRepository.findByPhoneNumber(request.getPhoneNumber())
                 .orElseThrow(()->
-                    new MemberException(MemberErrorCode.DUPLICATE_PHONE_NUMBER));
+                    new MemberException(MemberErrorCode.NOT_EXIST_MEMBER));
         return ResponseMemberDto.of(member);
     }
 
     public ResponseMemberDto loginByEmail(RequestMemberDto request) {
         Member member = memberRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->
-                        new MemberException(MemberErrorCode.DUPLICATE_EMAIL));
+                        new MemberException(MemberErrorCode.NOT_EXIST_MEMBER));
         return ResponseMemberDto.of(member);
     }
 }
