@@ -1,9 +1,12 @@
 import React from 'react';
 import * as S from './SignUpPage.styled';
 import Header from '@/components/Header/Header';
+import useSignup from '@/hooks/useSignup';
 type Props = {};
 
 export default function SignUpPage({}: Props) {
+  const { userData, onChnageUserData, signup } = useSignup();
+
   const year = new Date().getFullYear();
   const yearList = [...new Array(100)].map((_, i) => year - i);
   const monthList = [...new Array(12)].map((_, i) => i + 1);
@@ -24,6 +27,7 @@ export default function SignUpPage({}: Props) {
                 <option value="5">5</option>
               </S.TelePhoneCountryCode>
               <S.PhoneNumberInput
+                onChange={onChnageUserData}
                 placeholder="휴대폰 번호"
                 type="text"
                 pattern="[0-9]+"
@@ -31,6 +35,7 @@ export default function SignUpPage({}: Props) {
             </S.PhoneNumberContainer>
             <S.PasswordContainer>
               <S.PasswordInput
+                onChange={onChnageUserData}
                 placeholder="비밀번호"
                 type="password"
               ></S.PasswordInput>
@@ -45,25 +50,25 @@ export default function SignUpPage({}: Props) {
               <S.BirthDateLabel>생년월일</S.BirthDateLabel>
               <S.BirthDateInputContainer>
                 <S.YearSelectButton disabled>
-                  <S.SelectBox>
+                  <S.SelectBox onChange={onChnageUserData}>
                     {yearList.map((e, i) => {
-                      return <option>{e}</option>;
+                      return <option value={e}>{e}</option>;
                     })}
                   </S.SelectBox>
                   <S.Text>년</S.Text>
                 </S.YearSelectButton>
                 <S.MonthSelectButton disabled>
-                  <S.SelectBox>
+                  <S.SelectBox onChange={onChnageUserData}>
                     {monthList.map((e, i) => {
-                      return <option>{e}</option>;
+                      return <option value={e}>{e}</option>;
                     })}
                   </S.SelectBox>
                   <S.Text>월</S.Text>
                 </S.MonthSelectButton>
                 <S.DaySelectButton disabled>
-                  <S.SelectBox>
+                  <S.SelectBox onChange={onChnageUserData}>
                     {dayList.map((e, i) => {
-                      return <option>{e}</option>;
+                      return <option value={e}>{e}</option>;
                     })}
                   </S.SelectBox>
                   <S.Text>일</S.Text>
@@ -71,7 +76,7 @@ export default function SignUpPage({}: Props) {
               </S.BirthDateInputContainer>
             </S.BirthDateContainer>
           </S.InputContainer>
-          <S.SubmitButton>확인</S.SubmitButton>
+          <S.SubmitButton onClick={signup}>확인</S.SubmitButton>
         </S.Form>
       </S.Wrapper>
     </>
