@@ -36,10 +36,10 @@ function useSignup() {
     }
   };
 
-  const login = () => {
+  const signup = () => {
     requestSignUp(userData)
       .then(() => {
-        alert('로그인성공');
+        alert('회원가입 성공');
       })
       .catch(err => {
         console.log(err);
@@ -49,7 +49,7 @@ function useSignup() {
   return {
     userData,
     onChnageUserData,
-    login,
+    signup,
   };
 }
 export default useSignup;
