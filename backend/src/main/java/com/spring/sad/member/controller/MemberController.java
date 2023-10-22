@@ -1,6 +1,8 @@
 package com.spring.sad.member.controller;
 
 import com.spring.sad.member.dto.request.RequestMemberDto;
+import com.spring.sad.member.dto.request.RequestMemberSignUpByEmailDto;
+import com.spring.sad.member.dto.request.RequestMemberSignUpByPhoneNumber;
 import com.spring.sad.member.dto.response.ResponseMemberDto;
 import com.spring.sad.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -30,13 +32,13 @@ public class MemberController {
     }
 
     @PostMapping("/phone-sign-up")
-    public ResponseEntity<ResponseMemberDto> signUpByPhoneNumber(@RequestBody RequestMemberDto request) {
+    public ResponseEntity<ResponseMemberDto> signUpByPhoneNumber(@RequestBody RequestMemberSignUpByPhoneNumber request) {
         ResponseMemberDto response = memberService.signUpByPhoneNumber(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PostMapping("/email-sign-up")
-    public ResponseEntity<ResponseMemberDto> signUpByEmail(@RequestBody RequestMemberDto request) {
+    public ResponseEntity<ResponseMemberDto> signUpByEmail(@RequestBody RequestMemberSignUpByEmailDto request) {
         ResponseMemberDto response = memberService.signUpByEmail(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

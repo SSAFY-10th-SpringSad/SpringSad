@@ -17,6 +17,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+
     @Transactional
     public ResponseMemberDto signUpByEmail(RequestMemberDto request) {
         if(memberRepository.existsByEmail(request.getEmail()))
