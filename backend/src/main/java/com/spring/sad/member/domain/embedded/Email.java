@@ -7,7 +7,6 @@ import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.val;
 
 import java.util.regex.Pattern;
 
