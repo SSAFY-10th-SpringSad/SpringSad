@@ -1,5 +1,9 @@
 const BROWSER_PATH = {
-  SIGN_UP: '/signp',
+  PHONE_SIGN_UP: '/phone_signup',
+  EMAIL_SIGN_UP: '/email_signup',
+  HOME: '/',
+  PHONE_LOGIN: '/login',
+  CREATE_BAND: '/create_band',
 };
 
 const API_PATH = {
