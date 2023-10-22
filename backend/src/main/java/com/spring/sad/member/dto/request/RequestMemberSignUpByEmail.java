@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
-public class RequestMemberSignUpByEmailDto extends RequestMemberDto {
+public class RequestMemberSignUpByEmail extends RequestMemberDto {
     private String email;
 
     @Override
