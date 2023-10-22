@@ -1,6 +1,8 @@
 package com.spring.sad.member.domain;
 
 import com.spring.sad.global.domain.BaseEntity;
+import com.spring.sad.member.domain.embbeded.BirthDate;
+import com.spring.sad.member.domain.embbeded.Email;
 import com.spring.sad.notification.domain.Notification;
 import com.spring.sad.post.domain.Comment;
 import com.spring.sad.post.domain.Post;
@@ -25,14 +27,16 @@ public class Member extends BaseEntity {
 
     private String password;
 
-    private String email;
+    @Embedded
+    private Email email;
 
     private String cellPhone;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String birthday;
+    @Embedded
+    private BirthDate birthDate;
 
     private Boolean isDeleted;
 
@@ -54,15 +58,15 @@ public class Member extends BaseEntity {
     @Builder
     public Member(String name,
                   String password,
-                  String email,
+                  Email email,
                   String cellPhone,
                   Gender gender,
-                  String birthday) {
+                  BirthDate birthDate) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.cellPhone = cellPhone;
         this.gender = gender;
-        this.birthday = birthday;
+        this.birthDate = birthDate;
     }
 }
