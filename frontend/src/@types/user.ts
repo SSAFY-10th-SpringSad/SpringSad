@@ -24,3 +24,8 @@ type RequestPhoneSignupUserType = {
     day: number;
   };
 };
+
+//==============
+type ResponseLogin = {
+  userId: number;
+};
