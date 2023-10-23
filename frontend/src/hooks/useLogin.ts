@@ -6,8 +6,8 @@ function useLogin() {
   const { value: password, onChange: onChangePassword } = useInput('');
   const login = () => {
     requestLogin({ email, password })
-      .then(() => {
-        alert('로그인성공');
+      .then(res => {
+        sessionStorage.setItem('userId', JSON.stringify(res.data.userId));
       })
       .catch(err => {
         console.log(err);
