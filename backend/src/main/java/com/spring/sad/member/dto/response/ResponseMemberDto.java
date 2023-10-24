@@ -12,12 +12,10 @@ import lombok.NoArgsConstructor;
 public class ResponseMemberDto {
     private long id;
     private String name;
-    private String password;
 
     private ResponseMemberDto(Member member) {
         this.id = member.getMemberId();
         this.name = member.getName();
-        this.password = member.getPassword();
     }
 
     public static ResponseMemberDto of(Member member) {
