@@ -1,7 +1,7 @@
 package com.spring.sad.member.service;
 
-import com.spring.sad.member.dto.request.MemberSignupByCellPhoneRequest;
-import com.spring.sad.member.dto.request.MemberSignupByEmailRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByCellPhoneRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.exception.MemberErrorCode;
 import com.spring.sad.member.exception.MemberException;
 import com.spring.sad.member.repository.MemberRepository;

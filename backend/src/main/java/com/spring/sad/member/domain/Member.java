@@ -1,7 +1,6 @@
 package com.spring.sad.member.domain;
 
 import com.spring.sad.global.domain.BaseEntity;
-import com.spring.sad.member.domain.embbeded.BirthDate;
 import com.spring.sad.member.domain.embbeded.CellPhone;
 import com.spring.sad.member.domain.embbeded.Email;
 import com.spring.sad.notification.domain.Notification;
@@ -13,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,13 +31,13 @@ public class Member extends BaseEntity {
     @Embedded
     private Email email;
 
+    @Embedded
     private CellPhone cellPhone;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Embedded
-    private BirthDate birthDate;
+    private LocalDate birthdate;
 
     private Boolean isDeleted;
 
@@ -62,12 +62,12 @@ public class Member extends BaseEntity {
                   Email email,
                   CellPhone cellPhone,
                   Gender gender,
-                  BirthDate birthDate) {
+                  LocalDate birthDate) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.cellPhone = cellPhone;
         this.gender = gender;
-        this.birthDate = birthDate;
+        this.birthdate = birthDate;
     }
 }

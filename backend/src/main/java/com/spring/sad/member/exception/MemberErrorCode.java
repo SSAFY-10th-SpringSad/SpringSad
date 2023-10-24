@@ -9,9 +9,7 @@ public enum MemberErrorCode implements ErrorCode {
     EMAIL_ALREADY_EXISTS(400, "MEMBER_02", "존재하는 이메일입니다."),
     CELL_PHONE_IS_NOT_VALID(400, "MEMBER_03", "유효하지 않은 전화번호 형식입니다."),
     CELL_PHONE_ALREADY_EXISTS(400, "MEMBER_04", "존재하는 전화번호입니다."),
-    BIRTH_DATE_YEAR_IS_NOT_VALID(400, "MEMBER_05", "유효하지 않은 생일 형식입니다.(년도)"),
-    BIRTH_DATE_MONTH_IS_NOT_VALID(400, "MEMBER_06", "유효하지 않은 생일 형식입니다.(월)"),
-    BIRTH_DATE_DAY_IS_NOT_VALID(400, "MEMBER_07", "유효하지 않은 생일 형식입니다.(일)");
+    BIRTH_DATE_YEAR_IS_NOT_VALID(400, "MEMBER_05", "유효하지 않은 생년월일 형식입니다.");
 
 
     private final int statusCode;

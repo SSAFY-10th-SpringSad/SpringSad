@@ -1,7 +1,6 @@
-package com.spring.sad.member.dto.request;
+package com.spring.sad.member.data.dto.request;
 
 import com.spring.sad.member.domain.Member;
-import com.spring.sad.member.domain.embbeded.BirthDate;
 import com.spring.sad.member.domain.embbeded.Email;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,10 +18,7 @@ public class MemberSignupByEmailRequest extends MemberSignupRequest{
                 .email(Email.from(email))
                 .password(password)
                 .name(name)
-                .birthDate(BirthDate.of(
-                        year,
-                        month,
-                        day))
+                .birthDate(birthdate.toLocalDate())
                 .build();
     }
 }

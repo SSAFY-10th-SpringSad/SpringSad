@@ -1,5 +1,7 @@
-package com.spring.sad.member.dto.request;
+package com.spring.sad.member.data.dto.request;
 
+import com.spring.sad.member.annotation.birthdate.ValidBirthdate;
+import com.spring.sad.member.data.vo.Birthdate;
 import com.spring.sad.member.domain.Member;
 import lombok.Getter;
 
@@ -7,9 +9,8 @@ import lombok.Getter;
 public abstract class MemberSignupRequest {
     protected String password;
     protected String name;
-    protected String year;
-    protected String month;
-    protected String day;
+    @ValidBirthdate
+    protected Birthdate birthdate;
 
     public abstract Member toMember();
 }
