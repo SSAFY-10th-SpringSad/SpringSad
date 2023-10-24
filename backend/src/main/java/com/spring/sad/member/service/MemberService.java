@@ -1,6 +1,8 @@
 package com.spring.sad.member.service;
 
 import com.spring.sad.member.domain.Member;
+import com.spring.sad.member.dto.request.RequestMemberLoginByEmail;
+import com.spring.sad.member.dto.request.RequestMemberLoginByPhoneNumber;
 import com.spring.sad.member.dto.request.RequestMemberSignUpByEmail;
 import com.spring.sad.member.dto.request.RequestMemberSignUpByPhoneNumber;
 import com.spring.sad.member.dto.response.ResponseMemberDto;
@@ -37,7 +39,7 @@ public class MemberService {
         return ResponseMemberDto.of(member);
     }
 
-    public ResponseMemberDto loginByPhoneNumber(RequestMemberSignUpByPhoneNumber request) {
+    public ResponseMemberDto loginByPhoneNumber(RequestMemberLoginByPhoneNumber request) {
         Member requestMember = request.toMember();
         Member member = memberRepository.findByPhoneNumber(requestMember.getPhoneNumber())
                 .orElseThrow(()->
@@ -49,7 +51,7 @@ public class MemberService {
         return ResponseMemberDto.of(member);
     }
 
-    public ResponseMemberDto loginByEmail(RequestMemberSignUpByEmail request) {
+    public ResponseMemberDto loginByEmail(RequestMemberLoginByEmail request) {
         Member requestMember = request.toMember();
         Member member = memberRepository.findByEmail(requestMember.getEmail())
                 .orElseThrow(() ->
