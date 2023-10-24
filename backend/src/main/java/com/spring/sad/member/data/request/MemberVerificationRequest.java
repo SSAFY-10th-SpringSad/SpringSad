@@ -1,2 +1,4 @@
-package com.spring.sad.member.data.request;public class MemberVerificationRequest {
+package com.spring.sad.member.data.request;
+
+public class MemberVerificationRequest {
 }
