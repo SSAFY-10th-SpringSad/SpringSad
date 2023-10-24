@@ -17,7 +17,7 @@ public class Email {
     private static final String EMAIL_FORMAT = "^[a-z0-9._-]{5,16}+@[a-z]+[.]+[a-z]{2,3}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_FORMAT);
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", unique = true)
     private String value;
 
     private Email(String email) {
@@ -25,7 +25,7 @@ public class Email {
     }
 
     public static Email from(String email) {
-        validateEmailFormat(email);
+//        validateEmailFormat(email);
         return new Email(email);
     }
 

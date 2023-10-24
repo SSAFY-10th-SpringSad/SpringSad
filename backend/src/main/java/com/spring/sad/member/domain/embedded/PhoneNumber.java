@@ -25,7 +25,7 @@ public class PhoneNumber {
     }
 
     public static PhoneNumber from(String phoneNumber) {
-        validatePhoneNumberFormat(phoneNumber);
+//        validatePhoneNumberFormat(phoneNumber);
         return new PhoneNumber(phoneNumber);
     }
 
