@@ -1,2 +1,4 @@
-package com.spring.sad.category.repository;public interface CategoryRepository {
+package com.spring.sad.category.repository;
+
+public interface CategoryRepository {
 }

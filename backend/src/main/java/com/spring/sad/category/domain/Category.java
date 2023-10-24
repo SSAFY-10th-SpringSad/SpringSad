@@ -1,2 +1,4 @@
-package com.spring.sad.category.domain;public class Category {
+package com.spring.sad.category.domain;
+
+public class Category {
 }
