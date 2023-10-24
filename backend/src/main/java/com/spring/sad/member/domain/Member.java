@@ -4,17 +4,19 @@ import com.spring.sad.BaseTimeEntity;
 import com.spring.sad.band.domain.Band;
 import com.spring.sad.band.domain.MemberBand;
 import com.spring.sad.comment.domain.Comment;
+import com.spring.sad.member.domain.embbeded.Birthday;
+import com.spring.sad.member.domain.embbeded.CellPhone;
+import com.spring.sad.member.domain.embbeded.Email;
 import com.spring.sad.member.enums.GenderEnum;
 import com.spring.sad.notification.domain.Notification;
 import com.spring.sad.post.domain.Post;
 import com.spring.sad.profile.domain.Profile;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Null;
-import lombok.*;
-import org.springframework.lang.Nullable;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,15 +35,17 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false)
     private String password;
 
-    @Email
-    private String email;
+    @Embedded
+    private Email email;
 
-    private String cellPhone;
+    @Embedded
+    private CellPhone cellPhone;
 
     @Enumerated(EnumType.STRING)
     private GenderEnum gender;
 
-    private String birthday;
+    @Embedded
+    private Birthday birthday;
 
     private boolean isDeleted;
 
@@ -64,7 +68,7 @@ public class Member extends BaseTimeEntity {
     private List<MemberBand> memberBands = new ArrayList<>();
 
     @Builder
-    public Member(int id, String name, String password, String email, String cellPhone, GenderEnum gender, String birthday, boolean isDeleted){
+    public Member(int id, String name, String password, Email email, CellPhone cellPhone, GenderEnum gender, Birthday birthday, boolean isDeleted){
         this.id = id;
         this.name = name;
         this.password = password;
