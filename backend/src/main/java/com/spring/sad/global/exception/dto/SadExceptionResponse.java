@@ -12,7 +12,7 @@ public class SadExceptionResponse {
     private String message;
     private String errorCode;
 
-    public static ResponseEntity<SadExceptionResponse> of(SadException e) {
+    public static ResponseEntity<SadExceptionResponse> toResponse(SadException e) {
         return ResponseEntity
                 .status(e.getStatusCode())
                 .body(SadExceptionResponse.builder()
