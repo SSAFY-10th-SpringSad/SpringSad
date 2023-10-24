@@ -33,7 +33,7 @@ public class Profile{
     private String img;
     private boolean isDefault;
 
-    @OneToMany(mappedBy = "band", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
     private List<Band> bands = new ArrayList<>();
 
     @Builder
