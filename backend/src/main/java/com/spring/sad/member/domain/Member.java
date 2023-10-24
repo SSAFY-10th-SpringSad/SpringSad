@@ -11,7 +11,6 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -40,8 +39,7 @@ public class Member extends BaseEntity {
 
     private LocalDate birthday;
 
-    @Column(columnDefinition="tinyint(1) default 0")
-    private Boolean isDeleted;
+    private boolean isDeleted;
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Profile> profiles = new ArrayList<>();
