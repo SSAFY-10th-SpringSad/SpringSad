@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberController {
     private final MemberService memberService;
 
-    // 페이지 이동 GET 어케?
-
     @PostMapping("/phone-login")
     public ResponseEntity<ResponseMemberDto> loginByPhoneNumber(@RequestBody RequestMemberSignUpByPhoneNumber request) {
         ResponseMemberDto response = memberService.loginByPhoneNumber(request);
