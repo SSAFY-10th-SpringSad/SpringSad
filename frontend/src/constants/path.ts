@@ -1,9 +1,9 @@
 const BROWSER_PATH = {
-  SIGN_UP_BY_PHONE: '/phone_signup',
-  SIGN_UP_BY_EMAIL: '/email_signup',
+  SIGN_UP: '/signup/:type',
+  SIGN_UP_BY_EMAIL: '/signup/email',
+  SIGN_UP_BY_PHONE: '/signup/email',
   HOME: '/',
-  LOGIN_BY_PHONE: '/login/phone',
-  LOGIN_BY_EMAIL: '/login/email',
+  LOGIN: '/login/:type',
   CREATE_BAND: '/create_band',
 };
 

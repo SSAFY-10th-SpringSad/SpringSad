@@ -66,6 +66,24 @@ const EmailInput = styled.input`
   border-left: 1px solid lightgray;
 `;
 
+const PhoneNumberContainer = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+`;
+const TelePhoneCountryCode = styled.select`
+  width: 20%;
+  height: 30px;
+  border: none;
+`;
+const PhoneNumberInput = styled.input`
+  width: 80%;
+  padding: 0 5px 0 10px;
+  border-left: 1px solid lightgray;
+`;
+
 const PasswordContainer = styled.div`
   margin-top: 30px;
   width: 100%;
@@ -159,6 +177,9 @@ export {
   FormTitle,
   InputContainer,
   EmailInputContainer,
+  PhoneNumberContainer,
+  PhoneNumberInput,
+  TelePhoneCountryCode,
   PasswordContainer,
   NameContainer,
   BirthDateContainer,

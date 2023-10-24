@@ -8,8 +8,9 @@ import ResetStyle from './styles/ResetStyle';
 import { worker } from './mock/serviceWorker';
 
 function App() {
-  worker.start();
-
+  if (process.env.NODE_ENV === 'development') {
+    worker.start();
+  }
   return (
     <ThemeProvider theme={theme}>
       <Global styles={ResetStyle} />

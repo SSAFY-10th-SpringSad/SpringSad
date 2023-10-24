@@ -1,42 +1,33 @@
-import {
-  requestLoginByEmail,
-  requestLoginByPhone,
-} from '@/apis/request/requestAuth';
+import { requestLogin } from '@/apis/request/requestAuth';
 import useInput from './useInput';
 
-function useLogin() {
+function useLogin(type: string) {
   const { value: email, onChange: onChangeEmail } = useInput('');
   const { value: password, onChange: onChangePassword } = useInput('');
   const { value: phone, onChange: onChangePhone } = useInput('');
 
-  const loginByEmail = (e: { preventDefault: () => void }) => {
+  const login = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
-    requestLoginByEmail({ email, password })
+    let success = false;
+    requestLogin(
+      type === 'email' ? { email, password } : { phone, password },
+      type,
+    )
       .then(res => {
         sessionStorage.setItem('userId', JSON.stringify(res.data.userId));
+        success = true;
       })
       .catch(err => {
         console.log(err);
       });
-  };
-
-  const loginByPhone = () => {
-    requestLoginByPhone({ phone, password })
-      .then(res => {
-        sessionStorage.setItem('userId', JSON.stringify(res.data.userId));
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    return success;
   };
 
   return {
     onChangeEmail,
-    onChangePassword,
     onChangePhone,
-    loginByEmail,
-    loginByPhone,
+    onChangePassword,
+    login,
   };
 }
 export default useLogin;

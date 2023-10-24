@@ -1,56 +1,15 @@
-import React, { ChangeEvent, useState } from 'react';
-import * as S from './EmailSignUpPage.styled';
+import * as S from './SignUpPage.styled';
 import Header from '@/components/Header/Header';
-import { requestSignUp } from '@/apis/request/requestUser';
-import { useNavigate } from 'react-router-dom';
-import { BROWSER_PATH } from '@/constants/path';
+import { useNavigate, useParams } from 'react-router-dom';
+import useSignup from '@/hooks/useSignup';
 type Props = {};
 
 export default function SignUpPage({}: Props) {
-  const navigate = useNavigate();
-
-  const [userData, setUserData] = useState<RequestSignUpByEmailType>({
-    email: '',
-    password: '',
-    name: '',
-    birth: {
-      year: 0,
-      month: 0,
-      day: 0,
-    },
-  });
-
-  const onChnageUserData = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => {
-    const { name, value } = e.target;
-    if (name.startsWith('birth.')) {
-      const fieldName = name.split('.')[1];
-      setUserData(prevData => ({
-        ...prevData,
-        birth: {
-          ...prevData.birth,
-          [fieldName]: value,
-        },
-      }));
-    } else {
-      setUserData({
-        ...userData,
-        [name]: value,
-      });
-    }
-  };
-
-  const signup = (e: { preventDefault: () => void }) => {
+  const { type } = useParams();
+  const { onChnageUserData, signup } = useSignup(type as string);
+  const onClickSignup = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    requestSignUp(userData, 'email')
-      .then(() => {
-        alert('회원가입 성공');
-        navigate(BROWSER_PATH.LOGIN_BY_EMAIL);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    signup();
   };
 
   const year = new Date().getFullYear();
@@ -64,14 +23,34 @@ export default function SignUpPage({}: Props) {
         <S.Form>
           <S.FormTitle>회원가입</S.FormTitle>
           <S.InputContainer>
-            <S.EmailInputContainer>
-              <S.EmailInput
-                placeholder="이메일"
-                type="text"
-                name="email"
-                onChange={onChnageUserData}
-              ></S.EmailInput>
-            </S.EmailInputContainer>
+            {type === 'email' && (
+              <S.EmailInputContainer>
+                <S.EmailInput
+                  placeholder="이메일"
+                  type="text"
+                  name="email"
+                  onChange={onChnageUserData}
+                ></S.EmailInput>
+              </S.EmailInputContainer>
+            )}
+            {type === 'phone' && (
+              <S.PhoneNumberContainer>
+                <S.TelePhoneCountryCode>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </S.TelePhoneCountryCode>
+                <S.PhoneNumberInput
+                  onChange={onChnageUserData}
+                  placeholder="휴대폰 번호"
+                  type="text"
+                  pattern="[0-9]+"
+                ></S.PhoneNumberInput>
+              </S.PhoneNumberContainer>
+            )}
+
             <S.PasswordContainer>
               <S.PasswordInput
                 onChange={onChnageUserData}
@@ -120,7 +99,7 @@ export default function SignUpPage({}: Props) {
               </S.BirthDateInputContainer>
             </S.BirthDateContainer>
           </S.InputContainer>
-          <S.SubmitButton onClick={signup}>확인</S.SubmitButton>
+          <S.SubmitButton onClick={onClickSignup}>확인</S.SubmitButton>
         </S.Form>
       </S.Wrapper>
     </>
