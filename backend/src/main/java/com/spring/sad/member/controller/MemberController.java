@@ -20,13 +20,13 @@ public class MemberController {
     @PostMapping("/signup/email")
     public ResponseEntity<Void> signup(@RequestBody MemberSignupByEmailRequest request) {
         memberService.signupByEmail(request);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/signup/cellphone")
     public ResponseEntity<Void> signup(@RequestBody MemberSignupByCellPhoneRequest request) {
         memberService.signupByCellPhone(request);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
