@@ -1,10 +1,12 @@
 package com.spring.sad.member.repository;
 
 import com.spring.sad.member.domain.Member;
+import com.spring.sad.member.domain.embbeded.CellPhone;
+import com.spring.sad.member.domain.embbeded.Email;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-    boolean existsByEmail(String email);
+    boolean existsByEmail(Email email);
 
-    boolean existsByCellPhone(String cellPhone);
+    boolean existsByCellPhone(CellPhone cellPhone);
 }

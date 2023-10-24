@@ -17,7 +17,7 @@ public class MemberService {
 
     @Transactional
     public void signupByCellPhone(MemberSignupByCellPhoneRequest request) {
-        if (memberRepository.existsByCellPhone(request.getCellPhone())) {
+        if (memberRepository.existsByCellPhone(request.toMember().getCellPhone())) {
             throw new MemberException(MemberErrorCode.CELL_PHONE_ALREADY_EXISTS);
         }
         memberRepository.save(request.toMember());
@@ -25,7 +25,7 @@ public class MemberService {
 
     @Transactional
     public void signupByEmail(MemberSignupByEmailRequest request) {
-        if (memberRepository.existsByEmail(request.getEmail())) {
+        if (memberRepository.existsByEmail(request.toMember().getEmail())) {
             throw new MemberException(MemberErrorCode.EMAIL_ALREADY_EXISTS);
         }
         memberRepository.save(request.toMember());

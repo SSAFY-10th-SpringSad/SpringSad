@@ -2,6 +2,7 @@ package com.spring.sad.member.dto.request;
 
 import com.spring.sad.member.domain.Member;
 import com.spring.sad.member.domain.embbeded.BirthDate;
+import com.spring.sad.member.domain.embbeded.CellPhone;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ public class MemberSignupByCellPhoneRequest extends MemberSignupRequest{
 
     public Member toMember() {
         return Member.builder()
-                .cellPhone(cellPhone)
+                .cellPhone(CellPhone.from(cellPhone))
                 .password(password)
                 .name(name)
                 .birthDate(BirthDate.of(
