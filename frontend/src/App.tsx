@@ -1,11 +1,11 @@
 import { ThemeProvider } from '@emotion/react';
 import theme from './styles/Theme';
 
-import { BrowserRouter } from 'react-router-dom';
-import Router from './routes/Router';
+import { RouterProvider } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import ResetStyle from './styles/ResetStyle';
 import { worker } from './mock/serviceWorker';
+import Router from './routes/Router';
 
 function App() {
   if (process.env.NODE_ENV === 'development') {
@@ -14,9 +14,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={ResetStyle} />
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <RouterProvider router={Router} />
     </ThemeProvider>
   );
 }

@@ -171,6 +171,7 @@ const Text = styled.span`
   font-size: 30px;
   color: lightgray;
 `;
+const Option = styled.option``;
 export {
   Wrapper,
   Form,
@@ -195,4 +196,5 @@ export {
   BirthDateInputContainer,
   SelectBox,
   Text,
+  Option,
 };
