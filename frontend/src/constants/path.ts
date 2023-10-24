@@ -1,17 +1,20 @@
 const BROWSER_PATH = {
-  PHONE_SIGN_UP: '/phone_signup',
-  EMAIL_SIGN_UP: '/email_signup',
+  SIGN_UP_BY_PHONE: '/phone_signup',
+  SIGN_UP_BY_EMAIL: '/email_signup',
   HOME: '/',
-  PHONE_LOGIN: '/login',
+  LOGIN_BY_PHONE: '/login/phone',
+  LOGIN_BY_EMAIL: '/login/email',
   CREATE_BAND: '/create_band',
 };
 
 const API_PATH = {
   AUTH: {
-    LOGIN: '/login',
+    LOGIN_BY_EMAIL: '/login/email',
+    LOGIN_BY_PHONE: '/login/phone',
   },
   USER: {
-    SIGN_UP: '/signup',
+    SIGN_UP_BY_EMAIL: '/signup/email',
+    SIGN_UP_BY_PHONE: '/signup/phone',
   },
 };
 

@@ -1,12 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import * as S from './PhoneSignUpPage.styled';
 import Header from '@/components/Header/Header';
-import useSignup from '@/hooks/useSignup';
 import { requestSignUp } from '@/apis/request/requestUser';
 type Props = {};
 
 export default function SignUpPage({}: Props) {
-  const [userData, setUserData] = useState<RequestPhoneSignupUserType>({
+  const [userData, setUserData] = useState<RequestSignUpByPhoneType>({
     phone: '',
     password: '',
     name: '',
@@ -39,7 +38,7 @@ export default function SignUpPage({}: Props) {
   };
 
   const signup = () => {
-    requestSignUp(userData)
+    requestSignUp(userData, 'phone')
       .then(() => {
         alert('회원가입 성공');
       })

@@ -11,9 +11,15 @@ export default function Router() {
   return (
     <Routes>
       <Route path={BROWSER_PATH.HOME} element={<HomePage />} />
-      <Route path={BROWSER_PATH.PHONE_LOGIN} element={<LoginPage />} />
-      <Route path={BROWSER_PATH.PHONE_SIGN_UP} element={<PhoneSignUpPage />} />
-      <Route path={BROWSER_PATH.EMAIL_SIGN_UP} element={<EmailSignUpPage />} />
+      <Route path={BROWSER_PATH.LOGIN_BY_EMAIL} element={<LoginPage />} />
+      <Route
+        path={BROWSER_PATH.SIGN_UP_BY_PHONE}
+        element={<PhoneSignUpPage />}
+      />
+      <Route
+        path={BROWSER_PATH.SIGN_UP_BY_EMAIL}
+        element={<EmailSignUpPage />}
+      />
       <Route path="/band:bandId" element={<BandDetailPage />} />
       <Route path={BROWSER_PATH.CREATE_BAND} element={<CreateBandPage />} />
     </Routes>

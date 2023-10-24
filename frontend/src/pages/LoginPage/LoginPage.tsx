@@ -4,7 +4,7 @@ import { BROWSER_PATH } from '@/constants/path';
 import useLogin from '@/hooks/useLogin';
 
 export default function LoginPage() {
-  const { onChangeEmail, onChangePassword, login } = useLogin();
+  const { onChangeEmail, onChangePassword, loginByEmail } = useLogin();
 
   return (
     <>
@@ -26,11 +26,11 @@ export default function LoginPage() {
               </S.InputContainer>
             </S.FormWrap>
 
-            <S.LoginButton onClick={login}>확인</S.LoginButton>
+            <S.LoginButton onClick={loginByEmail}>확인</S.LoginButton>
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
-            <S.NavigateSignUp to={BROWSER_PATH.EMAIL_SIGN_UP}>
+            <S.NavigateSignUp to={BROWSER_PATH.SIGN_UP_BY_EMAIL}>
               회원가입
             </S.NavigateSignUp>
           </S.NavigateSignUpWrapper>

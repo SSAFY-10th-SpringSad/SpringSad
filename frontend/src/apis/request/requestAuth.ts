@@ -1,8 +1,12 @@
 import { axios } from '../axios';
 import { API_PATH } from '@/constants/path';
 
-const requestLogin = (userData: RequestLoginUserType) => {
-  return axios.post<ResponseLogin>(API_PATH.AUTH.LOGIN, userData);
+const requestLoginByEmail = (userData: RequestLoginByEmailType) => {
+  return axios.post<ResponseLogin>(API_PATH.AUTH.LOGIN_BY_EMAIL, userData);
 };
 
-export { requestLogin };
+const requestLoginByPhone = (userData: RequestLoginByPhoneType) => {
+  return axios.post<ResponseLogin>(API_PATH.AUTH.LOGIN_BY_PHONE, userData);
+};
+
+export { requestLoginByEmail, requestLoginByPhone };

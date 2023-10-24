@@ -2,10 +2,14 @@ import React, { ChangeEvent, useState } from 'react';
 import * as S from './EmailSignUpPage.styled';
 import Header from '@/components/Header/Header';
 import { requestSignUp } from '@/apis/request/requestUser';
+import { useNavigate } from 'react-router-dom';
+import { BROWSER_PATH } from '@/constants/path';
 type Props = {};
 
 export default function SignUpPage({}: Props) {
-  const [userData, setUserData] = useState<RequestEmailSignupUserType>({
+  const navigate = useNavigate();
+
+  const [userData, setUserData] = useState<RequestSignUpByEmailType>({
     email: '',
     password: '',
     name: '',
@@ -37,10 +41,12 @@ export default function SignUpPage({}: Props) {
     }
   };
 
-  const signup = () => {
-    requestSignUp(userData)
+  const signup = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    requestSignUp(userData, 'email')
       .then(() => {
         alert('회원가입 성공');
+        navigate(BROWSER_PATH.LOGIN_BY_EMAIL);
       })
       .catch(err => {
         console.log(err);
@@ -62,6 +68,7 @@ export default function SignUpPage({}: Props) {
               <S.EmailInput
                 placeholder="이메일"
                 type="text"
+                name="email"
                 onChange={onChnageUserData}
               ></S.EmailInput>
             </S.EmailInputContainer>
@@ -69,6 +76,7 @@ export default function SignUpPage({}: Props) {
               <S.PasswordInput
                 onChange={onChnageUserData}
                 placeholder="비밀번호"
+                name="password"
                 type="password"
               ></S.PasswordInput>
             </S.PasswordContainer>
@@ -78,6 +86,7 @@ export default function SignUpPage({}: Props) {
             <S.NameContainer>
               <S.NameInput
                 placeholder="이름"
+                name="name"
                 onChange={onChnageUserData}
               ></S.NameInput>
             </S.NameContainer>
@@ -85,7 +94,7 @@ export default function SignUpPage({}: Props) {
               <S.BirthDateLabel>생년월일</S.BirthDateLabel>
               <S.BirthDateInputContainer>
                 <S.YearSelectButton disabled>
-                  <S.SelectBox onChange={onChnageUserData}>
+                  <S.SelectBox name="birth.year" onChange={onChnageUserData}>
                     {yearList.map((e, i) => {
                       return <option>{e}</option>;
                     })}
@@ -93,7 +102,7 @@ export default function SignUpPage({}: Props) {
                   <S.Text>년</S.Text>
                 </S.YearSelectButton>
                 <S.MonthSelectButton disabled>
-                  <S.SelectBox onChange={onChnageUserData}>
+                  <S.SelectBox name="birth.month" onChange={onChnageUserData}>
                     {monthList.map((e, i) => {
                       return <option>{e}</option>;
                     })}
@@ -101,7 +110,7 @@ export default function SignUpPage({}: Props) {
                   <S.Text>월</S.Text>
                 </S.MonthSelectButton>
                 <S.DaySelectButton disabled>
-                  <S.SelectBox onChange={onChnageUserData}>
+                  <S.SelectBox name="birth.day" onChange={onChnageUserData}>
                     {dayList.map((e, i) => {
                       return <option>{e}</option>;
                     })}

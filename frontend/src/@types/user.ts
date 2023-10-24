@@ -1,9 +1,14 @@
-type RequestLoginUserType = {
+type RequestLoginByEmailType = {
   email: string;
   password: string;
 };
 
-type RequestEmailSignupUserType = {
+type RequestLoginByPhoneType = {
+  phone: string;
+  password: string;
+};
+
+type RequestSignUpByEmailType = {
   email: string;
   password: string;
   name: string;
@@ -14,7 +19,7 @@ type RequestEmailSignupUserType = {
   };
 };
 
-type RequestPhoneSignupUserType = {
+type RequestSignUpByPhoneType = {
   phone: string;
   password: string;
   name: string;
