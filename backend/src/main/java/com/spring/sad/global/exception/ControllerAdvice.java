@@ -1,7 +1,7 @@
 package com.spring.sad.global.exception;
 
 import com.spring.sad.global.exception.dto.GlobalExceptionResponse;
-import com.spring.sad.global.exception.dto.MethodArgumentNotValidExceptionResponse;
+import com.spring.sad.global.exception.dto.ValidationExceptionResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,7 +15,7 @@ public class ControllerAdvice {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<MethodArgumentNotValidExceptionResponse> sadHandlerException(MethodArgumentNotValidException e) {
-        return MethodArgumentNotValidExceptionResponse.toResponse(e);
+    public ResponseEntity<ValidationExceptionResponse> validationHandlerException(MethodArgumentNotValidException e) {
+        return ValidationExceptionResponse.toResponse(e);
     }
 }

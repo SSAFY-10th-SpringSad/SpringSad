@@ -10,13 +10,13 @@ import java.util.Objects;
 @AllArgsConstructor
 @Data
 @Builder
-public class MethodArgumentNotValidExceptionResponse {
+public class ValidationExceptionResponse {
     private String message;
 
-    public static ResponseEntity<MethodArgumentNotValidExceptionResponse> toResponse(MethodArgumentNotValidException e) {
+    public static ResponseEntity<ValidationExceptionResponse> toResponse(MethodArgumentNotValidException e) {
         return ResponseEntity
             .status(e.getStatusCode())
-            .body(MethodArgumentNotValidExceptionResponse.builder()
+            .body(ValidationExceptionResponse.builder()
                     .message(Objects.requireNonNull(
                             e.getBindingResult().getFieldError()
                             ).getDefaultMessage())
