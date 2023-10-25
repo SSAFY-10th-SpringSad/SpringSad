@@ -14,25 +14,25 @@ import java.util.regex.Pattern;
 @Embeddable
 @Getter
 public class PhoneNumber {
-    private static final String CELL_PHONE_NUMBER_FORMAT = "^010\\d{8}$\n";
+    private static final String PHONE_NUMBER_NUMBER_FORMAT = "^010\\d{8}$";
 
-    private static final Pattern CELL_PHONE_NUMBER_PATTERN = Pattern.compile(CELL_PHONE_NUMBER_FORMAT);
+    private static final Pattern PHONE_NUMBER_NUMBER_PATTERN = Pattern.compile(PHONE_NUMBER_NUMBER_FORMAT);
 
-    @Column(name = "cell_phone")
+    @Column(name = "phone_number")
     private String value;
 
-    private PhoneNumber(String cellPhone) {
-        value = cellPhone;
+    private PhoneNumber(String phoneNumber) {
+        value = phoneNumber;
     }
 
-    public static PhoneNumber from(String cellPhone) {
-        validationCellPhoneFormat(cellPhone);
-        return new PhoneNumber(cellPhone);
+    public static PhoneNumber from(String phoneNumber) {
+        validationCellPhoneFormat(phoneNumber);
+        return new PhoneNumber(phoneNumber);
     }
 
-    private static void validationCellPhoneFormat(String cellPhone) {
-        if (!CELL_PHONE_NUMBER_PATTERN.matcher(cellPhone).matches()) {
-            throw new MemberException(MemberErrorCode.CELL_PHONE_IS_NOT_VALID);
+    private static void validationCellPhoneFormat(String phoneNumber) {
+        if (!PHONE_NUMBER_NUMBER_PATTERN.matcher(phoneNumber).matches()) {
+            throw new MemberException(MemberErrorCode.PHONE_NUMBER_IS_NOT_VALID);
         }
     }
 }

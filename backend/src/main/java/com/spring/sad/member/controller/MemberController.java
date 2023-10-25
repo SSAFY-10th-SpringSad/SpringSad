@@ -1,6 +1,6 @@
 package com.spring.sad.member.controller;
 
-import com.spring.sad.member.data.dto.request.MemberSignupByCellPhoneRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.service.MemberService;
 import jakarta.validation.Valid;
@@ -24,8 +24,8 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PostMapping("/signup/cellphone")
-    public ResponseEntity<Void> signup(@Valid @RequestBody MemberSignupByCellPhoneRequest request) {
+    @PostMapping("/signup/phone")
+    public ResponseEntity<Void> signup(@Valid @RequestBody MemberSignupByPhoneNumberRequest request) {
         memberService.signupByCellPhone(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

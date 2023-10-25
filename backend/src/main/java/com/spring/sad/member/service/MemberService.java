@@ -1,6 +1,6 @@
 package com.spring.sad.member.service;
 
-import com.spring.sad.member.data.dto.request.MemberSignupByCellPhoneRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.exception.MemberErrorCode;
 import com.spring.sad.member.exception.MemberException;
@@ -16,9 +16,9 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public void signupByCellPhone(MemberSignupByCellPhoneRequest request) {
-        if (memberRepository.existsByCellPhone(request.toMember().getPhoneNumber())) {
-            throw new MemberException(MemberErrorCode.CELL_PHONE_ALREADY_EXISTS);
+    public void signupByCellPhone(MemberSignupByPhoneNumberRequest request) {
+        if (memberRepository.existsByPhoneNumber(request.toMember().getPhoneNumber())) {
+            throw new MemberException(MemberErrorCode.PHONE_NUMBER_ALREADY_EXISTS);
         }
         memberRepository.save(request.toMember());
     }

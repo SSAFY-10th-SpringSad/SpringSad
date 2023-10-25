@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
-public class MemberSignupByCellPhoneRequest extends MemberSignupRequest{
-    private String cellPhone;
+public class MemberSignupByPhoneNumberRequest extends MemberSignupRequest{
+    private String phoneNumber;
 
     public Member toMember() {
         return Member.builder()
-                .phoneNumber(PhoneNumber.from(cellPhone))
+                .phoneNumber(PhoneNumber.from(phoneNumber))
                 .password(password)
                 .name(name)
                 .birthDate(birthdate.toLocalDate())

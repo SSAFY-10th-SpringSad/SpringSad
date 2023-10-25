@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 @Embeddable
 @Getter
 public class Email {
-    private static final String EMAIL_FORMAT = "^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\\\.[a-z]+$";
+    private static final String EMAIL_FORMAT = "^[a-z0-9._-]{5,16}+@[a-z]+[.]+[a-z]{2,3}$";
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_FORMAT);
 
     @Column(name = "email")
