@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
 import theme from './styles/Theme';
-
+import { RecoilRoot } from 'recoil';
 import { RouterProvider } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import ResetStyle from './styles/ResetStyle';
@@ -12,10 +12,12 @@ function App() {
     worker.start();
   }
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={ResetStyle} />
-      <RouterProvider router={Router} />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Global styles={ResetStyle} />
+        <RouterProvider router={Router} />
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 
