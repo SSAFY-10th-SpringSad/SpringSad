@@ -10,6 +10,10 @@ export default function LoginPage() {
     type as string,
   );
   const navigate = useNavigate();
+  const onClickLogin = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    login();
+  };
 
   return (
     <>
@@ -40,17 +44,7 @@ export default function LoginPage() {
               </S.InputContainer>
             </S.FormWrap>
 
-            <S.LoginButton
-              onClick={e => {
-                if (login(e)) {
-                  navigate(BROWSER_PATH.HOME);
-                } else {
-                  alert('로그인 실패');
-                }
-              }}
-            >
-              확인
-            </S.LoginButton>
+            <S.LoginButton onClick={onClickLogin}>확인</S.LoginButton>
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
