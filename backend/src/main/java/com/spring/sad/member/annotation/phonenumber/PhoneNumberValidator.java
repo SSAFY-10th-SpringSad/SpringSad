@@ -1,11 +1,11 @@
-package com.spring.sad.member.annotation.cellPhone;
+package com.spring.sad.member.annotation.phonenumber;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 import java.util.regex.Pattern;
 
-public class CellPhoneValidator implements ConstraintValidator<ValidCellPhone, String> {
+public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumber, String> {
     private static final String CELL_PHONE_NUMBER_FORMAT = "^010\\d{8}$\n";
     private static final Pattern CELL_PHONE_NUMBER_PATTERN = Pattern.compile(CELL_PHONE_NUMBER_FORMAT);
 
