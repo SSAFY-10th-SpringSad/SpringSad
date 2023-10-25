@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 @Getter
-public class CellPhone {
+public class PhoneNumber {
     private static final String CELL_PHONE_NUMBER_FORMAT = "^010\\d{8}$\n";
 
     private static final Pattern CELL_PHONE_NUMBER_PATTERN = Pattern.compile(CELL_PHONE_NUMBER_FORMAT);
@@ -21,13 +21,13 @@ public class CellPhone {
     @Column(name = "cell_phone")
     private String value;
 
-    private CellPhone(String cellPhone) {
+    private PhoneNumber(String cellPhone) {
         value = cellPhone;
     }
 
-    public static CellPhone from(String cellPhone) {
+    public static PhoneNumber from(String cellPhone) {
         validationCellPhoneFormat(cellPhone);
-        return new CellPhone(cellPhone);
+        return new PhoneNumber(cellPhone);
     }
 
     private static void validationCellPhoneFormat(String cellPhone) {

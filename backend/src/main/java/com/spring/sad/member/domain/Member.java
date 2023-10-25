@@ -1,7 +1,7 @@
 package com.spring.sad.member.domain;
 
 import com.spring.sad.global.domain.BaseEntity;
-import com.spring.sad.member.domain.embbeded.CellPhone;
+import com.spring.sad.member.domain.embbeded.PhoneNumber;
 import com.spring.sad.member.domain.embbeded.Email;
 import com.spring.sad.notification.domain.Notification;
 import com.spring.sad.post.domain.Comment;
@@ -32,7 +32,7 @@ public class Member extends BaseEntity {
     private Email email;
 
     @Embedded
-    private CellPhone cellPhone;
+    private PhoneNumber phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -60,13 +60,13 @@ public class Member extends BaseEntity {
     public Member(String name,
                   String password,
                   Email email,
-                  CellPhone cellPhone,
+                  PhoneNumber phoneNumber,
                   Gender gender,
                   LocalDate birthDate) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.cellPhone = cellPhone;
+        this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.birthdate = birthDate;
     }
