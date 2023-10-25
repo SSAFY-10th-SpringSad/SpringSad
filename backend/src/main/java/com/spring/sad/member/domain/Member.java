@@ -39,7 +39,7 @@ public class Member extends BaseEntity {
 
     private LocalDate birthdate;
 
-    private Boolean isDeleted;
+    private boolean isDeleted;
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<Profile> profiles = new ArrayList<>();
