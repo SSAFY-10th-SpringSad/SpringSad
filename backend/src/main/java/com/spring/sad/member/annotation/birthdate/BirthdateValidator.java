@@ -10,10 +10,6 @@ import java.time.LocalDate;
 public class BirthdateValidator implements ConstraintValidator<ValidBirthdate, Birthdate> {
 
     @Override
-    public void initialize(ValidBirthdate constraintAnnotation) {
-    }
-
-    @Override
     public boolean isValid(Birthdate value, ConstraintValidatorContext context) {
         try {
             LocalDate.of(value.getYear(), value.getMonth(), value.getDay());
