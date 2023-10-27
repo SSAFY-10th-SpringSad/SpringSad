@@ -1,5 +1,6 @@
 package com.spring.sad.member.controller;
 
+import com.spring.sad.member.data.dto.request.MemberLoginByEmailRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.service.MemberService;
@@ -28,6 +29,12 @@ public class MemberController {
     public ResponseEntity<Void> signup(@Valid @RequestBody MemberSignupByPhoneNumberRequest request) {
         memberService.signupByCellPhone(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/login/email")
+    public ResponseEntity<Void> login(@Valid @RequestBody MemberLoginByEmailRequest request){
+        memberService.loginByEmail(request);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }
