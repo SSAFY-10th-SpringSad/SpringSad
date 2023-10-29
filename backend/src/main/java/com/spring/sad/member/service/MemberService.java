@@ -5,6 +5,7 @@ import com.spring.sad.member.data.dto.request.MemberLoginByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
+import com.spring.sad.member.data.dto.response.ProfileSettingResponse;
 import com.spring.sad.member.domain.Member;
 import com.spring.sad.member.domain.Profile;
 import com.spring.sad.member.exception.MemberErrorCode;
@@ -70,5 +71,12 @@ public class MemberService {
             throw new MemberException(MemberErrorCode.LOGIN_FAILED);
 
         return MemberLoginResponse.of(member);
+    }
+
+    public ProfileSettingResponse getProfileSetting(long memberId) {
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() ->
+                        new MemberException(MemberErrorCode.MEMBER_DOES_NOT_EXISTS));
+        return ProfileSettingResponse.toResponse(member);
     }
 }

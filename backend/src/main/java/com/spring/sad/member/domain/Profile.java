@@ -24,6 +24,9 @@ public class Profile {
 
     private boolean isPrimaryProfile;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
+
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
     private final List<MemberBand> memberBands = new ArrayList<>();
 

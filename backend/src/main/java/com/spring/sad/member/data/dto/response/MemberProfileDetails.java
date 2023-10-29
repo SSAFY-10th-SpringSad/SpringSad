@@ -1,0 +1,36 @@
+package com.spring.sad.member.data.dto.response;
+
+import com.spring.sad.member.domain.MemberBand;
+import com.spring.sad.member.domain.Profile;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
+@Getter
+public class MemberProfileDetails {
+    long profileId;
+    String profileName;
+    String profileImg;
+    boolean isPrimaryProfile;
+    List<ProfileBandDetails> profileBandDetailsList = new ArrayList<>();
+
+    public static MemberProfileDetails from(Profile profile) {
+        MemberProfileDetails memberProfileDetails = MemberProfileDetails.builder()
+                .profileId(profile.getId())
+                .profileName(profile.getProfileName())
+                .profileImg(profile.getProfileImg())
+                .isPrimaryProfile(profile.isPrimaryProfile())
+                .build();
+
+        profile.getMemberBands().stream()
+                .map(MemberBand::getBand)
+                .map(ProfileBandDetails::from)
+                .forEach(memberProfileDetails.profileBandDetailsList::add);
+
+        return memberProfileDetails;
+    }
+}
