@@ -17,23 +17,20 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
-
     @Column(nullable = false, length = 20)
     private String profileName;
 
     private String profileImg;
 
-    private Boolean profileDefault;
+    private boolean isPrimaryProfile;
 
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
-    private List<MemberBand> memberBands = new ArrayList<>();
+    private final List<MemberBand> memberBands = new ArrayList<>();
 
     @Builder
-    public Profile(String profileName, String profileImg) {
+    public Profile(String profileName, String profileImg, boolean isPrimaryProfile) {
         this.profileName = profileName;
         this.profileImg = profileImg;
+        this.isPrimaryProfile = isPrimaryProfile;
     }
 }
