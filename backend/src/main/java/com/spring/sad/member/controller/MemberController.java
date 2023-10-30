@@ -2,13 +2,11 @@ package com.spring.sad.member.controller;
 
 import com.spring.sad.member.data.dto.request.MemberLoginByEmailRequest;
 import com.spring.sad.member.data.dto.request.MemberLoginByPhoneNumberRequest;
-import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
 import com.spring.sad.member.service.MemberService;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -75,5 +73,7 @@ public class MemberController {
         MemberLoginResponse response = memberService.loginByPhoneNumber(request);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
+
 
 }
