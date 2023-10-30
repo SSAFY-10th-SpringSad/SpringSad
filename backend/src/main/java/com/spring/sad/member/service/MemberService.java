@@ -6,6 +6,7 @@ import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
 import com.spring.sad.member.domain.Member;
+import com.spring.sad.member.domain.Profile;
 import com.spring.sad.member.exception.MemberErrorCode;
 import com.spring.sad.member.exception.MemberException;
 import com.spring.sad.member.repository.MemberRepository;
@@ -24,7 +25,8 @@ public class MemberService {
         if (memberRepository.existsByPhoneNumber(request.toMember().getPhoneNumber())) {
             throw new MemberException(MemberErrorCode.PHONE_NUMBER_ALREADY_EXISTS);
         }
-        memberRepository.save(request.toMember());
+        Member member = memberRepository.save(request.toMember());
+        makeDefaultProfile(member);
     }
 
     @Transactional
@@ -32,7 +34,8 @@ public class MemberService {
         if (memberRepository.existsByEmail(request.toMember().getEmail())) {
             throw new MemberException(MemberErrorCode.EMAIL_ALREADY_EXISTS);
         }
-        memberRepository.save(request.toMember());
+        Member member = memberRepository.save(request.toMember());
+        makeDefaultProfile(member);
     }
 
     public MemberLoginResponse loginByEmail(MemberLoginByEmailRequest request) {
@@ -57,5 +60,15 @@ public class MemberService {
             throw new MemberException(MemberErrorCode.LOGIN_FAILED);
 
         return MemberLoginResponse.of(member);
+    }
+
+    public void makeDefaultProfile(Member member) {
+        Profile profile = Profile.builder()
+                .member(member)
+                .profileName(member.getName())
+                .profileDefault(true)
+                .build();
+
+        member.getProfiles().add(profile);
     }
 }

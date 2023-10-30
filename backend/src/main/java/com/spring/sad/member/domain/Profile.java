@@ -18,7 +18,7 @@ public class Profile {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member")
     private Member member;
 
     @Column(nullable = false, length = 20)
@@ -32,8 +32,10 @@ public class Profile {
     private List<MemberBand> memberBands = new ArrayList<>();
 
     @Builder
-    public Profile(String profileName, String profileImg) {
+    public Profile(Member member, String profileName, String profileImg, Boolean profileDefault) {
+        this.member = member;
         this.profileName = profileName;
         this.profileImg = profileImg;
+        this.profileDefault = profileDefault;
     }
 }
