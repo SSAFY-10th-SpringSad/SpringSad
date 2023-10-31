@@ -27,8 +27,8 @@ public class MemberService {
         if (memberRepository.existsByPhoneNumber(member.getPhoneNumber())) {
             throw new MemberException(MemberErrorCode.PHONE_NUMBER_ALREADY_EXISTS);
         }
-        addPrimaryProfile(member);
         memberRepository.save(member);
+        makePrimaryProfile(member);
     }
 
     @Transactional
@@ -37,11 +37,11 @@ public class MemberService {
         if (memberRepository.existsByEmail(member.getEmail())) {
             throw new MemberException(MemberErrorCode.EMAIL_ALREADY_EXISTS);
         }
-        addPrimaryProfile(member);
         memberRepository.save(member);
+        makePrimaryProfile(member);
     }
 
-    private void addPrimaryProfile(Member member) {
+    private void makePrimaryProfile(Member member) {
         Profile profile = Profile.builder()
                 .profileName(member.getName())
                 .isPrimaryProfile(true)
