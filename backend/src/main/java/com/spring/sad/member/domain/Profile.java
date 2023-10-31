@@ -25,6 +25,7 @@ public class Profile {
     private boolean isPrimaryProfile;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "memberId")
     private Member member;
 
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
