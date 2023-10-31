@@ -12,11 +12,11 @@ import java.util.List;
 @Builder
 @Getter
 public class MemberProfileDetails {
-    long profileId;
-    String profileName;
-    String profileImg;
-    boolean isPrimaryProfile;
-    List<ProfileBandDetails> profileBandDetailsList = new ArrayList<>();
+    private long profileId;
+    private String profileName;
+    private String profileImg;
+    private boolean isPrimaryProfile;
+    private List<ProfileBandDetails> profileBandDetailsList = new ArrayList<>();
 
     public static MemberProfileDetails from(Profile profile) {
         MemberProfileDetails memberProfileDetails = MemberProfileDetails.builder()

@@ -29,7 +29,7 @@ public class Profile {
     private Member member;
 
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
-    private final List<MemberBand> memberBands = new ArrayList<>();
+    private List<MemberBand> memberBands = new ArrayList<>();
 
     @Builder
     public Profile(String profileName, String profileImg, boolean isPrimaryProfile) {

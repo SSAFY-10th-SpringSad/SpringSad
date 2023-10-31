@@ -8,9 +8,9 @@ import lombok.*;
 @Builder
 @Getter
 public class ProfileBandDetails {
-    long bandId;
-    String bandName;
-    String bandImg;
+    private long bandId;
+    private String bandName;
+    private String bandImg;
     public static ProfileBandDetails from(Band band) {
         return ProfileBandDetails.builder()
                 .bandId(band.getBandId())

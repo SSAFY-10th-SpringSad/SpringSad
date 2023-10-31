@@ -12,9 +12,9 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class ProfileSettingResponse {
-    long memberId;
+    private long memberId;
     @JsonProperty("profiles")
-    List<MemberProfileDetails> memberProfileDetailsList = new ArrayList<>();
+    private List<MemberProfileDetails> memberProfileDetailsList = new ArrayList<>();
 
     private ProfileSettingResponse(long memberId) {
         this.memberId = memberId;
