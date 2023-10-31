@@ -1,4 +1,7 @@
+import { BROWSER_PATH } from '@/constants/path';
+import LandingPage from '@/pages/LandingPage/LandingPage';
 import { LoginState } from '@/store/status';
+import { Navigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 type Props = {
@@ -7,13 +10,5 @@ type Props = {
 
 export default function PageWithLogin({ children }: Props) {
   const isLogin = useRecoilValue(LoginState);
-  if (!isLogin) {
-    return <>로그인이 필요합니다.</>;
-    //여기서 로그인해달라고 알린 다음 로그인페이지로 리다이렉트한다.
-  }
-  return (
-    <>
-      <>{children}</>
-    </>
-  );
+  return <>{isLogin ? children : <Navigate to={BROWSER_PATH.LANDING} />}</>;
 }
