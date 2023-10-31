@@ -69,6 +69,7 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "프로필 조회 성공"),
             @ApiResponse(responseCode = "400", description = "사용자 조회 실패(MEMBER_07)")
