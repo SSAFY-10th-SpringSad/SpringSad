@@ -1,14 +1,10 @@
 package com.spring.sad.member.controller;
 
-import com.spring.sad.member.data.dto.request.MemberLoginByEmailRequest;
-import com.spring.sad.member.data.dto.request.MemberLoginByPhoneNumberRequest;
-import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
-import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
+import com.spring.sad.member.data.dto.request.*;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
+import com.spring.sad.member.data.dto.response.ProfileSettingResponse;
 import com.spring.sad.member.service.MemberService;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,10 +12,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "멤버 컨트롤러", description = "로그인 및 회원 가입")
 @RequestMapping("/member")
@@ -76,4 +69,14 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "프로필 조회 성공"),
+            @ApiResponse(responseCode = "400", description = "사용자 조회 실패(MEMBER_07)")
+    })
+    @Operation(summary = "프로필 조회", description = "프로필 관리 화면에서 프로필을 조회하는 API입니다.")
+    @GetMapping("profile/setting")
+    public ResponseEntity<ProfileSettingResponse> getProfiles(long memberId) {
+        ProfileSettingResponse response = memberService.getProfileSetting(memberId);
+        return ResponseEntity.ok(response);
+    }
 }

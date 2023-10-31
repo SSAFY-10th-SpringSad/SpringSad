@@ -12,7 +12,9 @@ public enum MemberErrorCode implements ErrorCode {
     EMAIL_ALREADY_EXISTS(400, "MEMBER_04", "존재하는 이메일입니다."),
     PHONE_NUMBER_ALREADY_EXISTS(400, "MEMBER_05", "존재하는 전화번호입니다."),
 
-    LOGIN_FAILED(400, "MEMBER_06", "아이디가 존재하지 않거나 잘못된 비밀 번호 입니다.");
+    LOGIN_FAILED(400, "MEMBER_06", "아이디가 존재하지 않거나 잘못된 비밀 번호 입니다."),
+
+    MEMBER_DOES_NOT_EXISTS(400, "MEBER_07", "존재하지 않는 회원입니다.");
 
 
     private final int statusCode;
