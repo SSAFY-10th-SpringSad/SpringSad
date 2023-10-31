@@ -32,7 +32,12 @@ public class Profile {
     private List<MemberBand> memberBands = new ArrayList<>();
 
     @Builder
-    public Profile(String profileName, String profileImg, boolean isPrimaryProfile) {
+    public Profile(
+            Member member,
+            String profileName,
+            String profileImg,
+            boolean isPrimaryProfile) {
+        this.member = member;
         this.profileName = profileName;
         this.profileImg = profileImg;
         this.isPrimaryProfile = isPrimaryProfile;
