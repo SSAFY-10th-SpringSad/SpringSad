@@ -25,31 +25,31 @@ const RouterInfo: routerItem[] = [
     withAuth: true,
     label: 'Home',
   },
+
   {
-    path: BROWSER_TYPE.LOGIN,
-    element: <LoginPage />,
-    withAuth: false,
-    label: 'Login',
-  },
-  {
-    path: BROWSER_PATH.LOGIN,
+    path: BROWSER_PATH.LOGIN_TYPE,
     element: <LoginTypePage />,
     withAuth: false,
     label: 'LoginType',
   },
   {
-    path: BROWSER_TYPE.SIGN_UP,
-    element: <SignUpPage />,
+    path: BROWSER_PATH.LOGIN,
+    element: <LoginPage />,
     withAuth: false,
-    label: 'SignUp',
+    label: 'Login',
   },
   {
-    path: BROWSER_PATH.SIGN_UP,
+    path: BROWSER_PATH.SIGN_UP_TYPE,
     element: <SignUpTypePage />,
     withAuth: false,
     label: 'SignUpType',
   },
-
+  {
+    path: BROWSER_PATH.SIGNUP,
+    element: <SignUpPage />,
+    withAuth: false,
+    label: 'SignUp',
+  },
   {
     path: BROWSER_PATH.CREATE_BAND,
     element: <CreateBandPage />,
@@ -57,13 +57,12 @@ const RouterInfo: routerItem[] = [
     label: 'CreateBand',
   },
   {
-    path: '/band:bandId',
+    path: '/band/:bandId',
     element: <BandDetailPage />,
     withAuth: true,
     label: 'BandDetail',
   },
 ];
-
 const router = createBrowserRouter(
   RouterInfo.map((routerInfo: routerItem) => {
     return routerInfo.withAuth

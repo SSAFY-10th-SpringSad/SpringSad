@@ -48,7 +48,7 @@ export default function LoginPage() {
           </S.Form>
           <S.NavigateSignUpWrapper>
             밴드가 처음이신가요?
-            <S.NavigateSignUp to={BROWSER_PATH.SIGN_UP_BY_EMAIL}>
+            <S.NavigateSignUp to={BROWSER_PATH.SIGN_UP_TYPE}>
               회원가입
             </S.NavigateSignUp>
           </S.NavigateSignUpWrapper>
