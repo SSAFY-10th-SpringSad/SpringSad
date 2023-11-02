@@ -3,4 +3,5 @@ export interface routerItem {
   element: React.ReactNode;
   withAuth: boolean;
   label: string;
+  children?: routerItem[];
 }

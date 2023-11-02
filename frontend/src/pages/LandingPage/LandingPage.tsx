@@ -15,13 +15,13 @@ export default function LandingPage({}: Props) {
           text="로그인"
           bgColor="white"
           fontColor="black"
-          link={BROWSER_PATH.LOGIN}
+          link={BROWSER_PATH.LOGIN_TYPE}
         />
         <LinkButton
           text="회원가입"
           bgColor="white"
           fontColor="black"
-          link={BROWSER_PATH.SIGN_UP}
+          link={BROWSER_PATH.SIGN_UP_TYPE}
         />
       </S.Container>
     </>
