@@ -2,7 +2,7 @@ package com.spring.sad.member.controller;
 
 import com.spring.sad.member.data.dto.request.*;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
-import com.spring.sad.member.data.dto.response.ProfileSettingResponse;
+import com.spring.sad.member.data.dto.response.ProfileListResponse;
 import com.spring.sad.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -73,10 +73,22 @@ public class MemberController {
             @ApiResponse(responseCode = "200", description = "프로필 조회 성공"),
             @ApiResponse(responseCode = "400", description = "사용자 조회 실패(MEMBER_07)")
     })
-    @Operation(summary = "프로필 조회", description = "프로필 관리 화면에서 프로필을 조회하는 API입니다.")
+    @Operation(summary = "프로필 조회", description = "프로필 관리 화면에서 프로필을 조회하는 API")
     @GetMapping("profile/setting")
-    public ResponseEntity<ProfileSettingResponse> getProfiles(long memberId) {
-        ProfileSettingResponse response = memberService.getProfileSetting(memberId);
+    public ResponseEntity<ProfileListResponse> getProfiles(long memberId) {
+        ProfileListResponse response = memberService.getProfileSetting(memberId);
         return ResponseEntity.ok(response);
+    }
+
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "프로필 수정 성공"),
+            @ApiResponse(responseCode = "400", description = "사용자 조회 실패(MEMBER_07)"),
+            @ApiResponse(responseCode = "400", description = "MEMBER-BAND 연관관계 불일치(MEMBER-BAND_01)")
+    })
+    @Operation(summary = "프로필 수정", description = "프로필 관리 화면에서 프로필을 수정하는 API")
+    @PostMapping("profile/setting")
+    public ResponseEntity<Void> setProfiles(@RequestBody ProfileUpdateRequest request) {
+        memberService.updateProfile(request);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

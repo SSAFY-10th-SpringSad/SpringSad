@@ -11,11 +11,11 @@ public class MemberLoginResponse {
     private long memberId;
     private String name;
     private MemberLoginResponse(Member member) {
-        this.memberId = member.getMemberId();
+        this.memberId = member.getId();
         this.name = member.getName();
     }
 
-    public static MemberLoginResponse of(Member member) {
+    public static MemberLoginResponse toResponse(Member member) {
         return new MemberLoginResponse(member);
     }
 }
