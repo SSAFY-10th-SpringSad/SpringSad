@@ -19,7 +19,7 @@ import java.util.List;
 public class Band {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long bandId;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
