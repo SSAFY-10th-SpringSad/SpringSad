@@ -1,8 +1,11 @@
 package com.spring.sad.member.controller;
 
-import com.spring.sad.member.data.dto.request.*;
+import com.spring.sad.member.data.dto.request.MemberLoginByEmailRequest;
+import com.spring.sad.member.data.dto.request.MemberLoginByPhoneNumberRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByEmailRequest;
+import com.spring.sad.member.data.dto.request.MemberSignupByPhoneNumberRequest;
 import com.spring.sad.member.data.dto.response.MemberLoginResponse;
-import com.spring.sad.member.data.dto.response.ProfileSettingResponse;
+import com.spring.sad.member.data.dto.response.MemberProfileResponse;
 import com.spring.sad.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -75,8 +78,8 @@ public class MemberController {
     })
     @Operation(summary = "프로필 조회", description = "프로필 관리 화면에서 프로필을 조회하는 API입니다.")
     @GetMapping("profile/setting")
-    public ResponseEntity<ProfileSettingResponse> getProfiles(long memberId) {
-        ProfileSettingResponse response = memberService.getProfileSetting(memberId);
+    public ResponseEntity<MemberProfileResponse> getProfiles(long memberId) {
+        MemberProfileResponse response = memberService.getProfileSetting(memberId);
         return ResponseEntity.ok(response);
     }
 }

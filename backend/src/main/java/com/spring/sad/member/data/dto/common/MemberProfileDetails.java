@@ -1,4 +1,4 @@
-package com.spring.sad.member.data.dto.response;
+package com.spring.sad.member.data.dto.common;
 
 import com.spring.sad.member.domain.MemberBand;
 import com.spring.sad.member.domain.Profile;

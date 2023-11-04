@@ -11,7 +11,7 @@ public class MemberLoginResponse {
     private long memberId;
     private String name;
     private MemberLoginResponse(Member member) {
-        this.memberId = member.getMemberId();
+        this.memberId = member.getId();
         this.name = member.getName();
     }
 
