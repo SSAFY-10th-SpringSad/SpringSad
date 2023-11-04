@@ -15,7 +15,7 @@ public class MemberLoginResponse {
         this.name = member.getName();
     }
 
-    public static MemberLoginResponse of(Member member) {
+    public static MemberLoginResponse toResponse(Member member) {
         return new MemberLoginResponse(member);
     }
 }

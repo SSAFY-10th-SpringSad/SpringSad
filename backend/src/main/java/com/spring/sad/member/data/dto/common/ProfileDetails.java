@@ -1,5 +1,6 @@
 package com.spring.sad.member.data.dto.common;
 
+import com.spring.sad.member.domain.Member;
 import com.spring.sad.member.domain.MemberBand;
 import com.spring.sad.member.domain.Profile;
 import lombok.*;
@@ -11,15 +12,15 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Getter
-public class MemberProfileDetails {
+public class ProfileDetails {
     private long profileId;
     private String profileName;
     private String profileImg;
     private boolean isPrimaryProfile;
-    private List<ProfileBandDetails> profileBandDetailsList = new ArrayList<>();
+    private List<BandDetails> bandDetailsList = new ArrayList<>();
 
-    public static MemberProfileDetails from(Profile profile) {
-        MemberProfileDetails memberProfileDetails = MemberProfileDetails.builder()
+    public static ProfileDetails from(Profile profile) {
+        ProfileDetails profileDetails = ProfileDetails.builder()
                 .profileId(profile.getId())
                 .profileName(profile.getProfileName())
                 .profileImg(profile.getProfileImg())
@@ -28,9 +29,18 @@ public class MemberProfileDetails {
 
         profile.getMemberBands().stream()
                 .map(MemberBand::getBand)
-                .map(ProfileBandDetails::from)
-                .forEach(memberProfileDetails.profileBandDetailsList::add);
+                .map(BandDetails::from)
+                .forEach(profileDetails.bandDetailsList::add);
 
-        return memberProfileDetails;
+        return profileDetails;
+    }
+
+    public Profile toProfile(Member member) {
+        return Profile.builder()
+                .member(member)
+                .profileName(profileName)
+                .profileImg(profileImg)
+                .isPrimaryProfile(isPrimaryProfile)
+                .build();
     }
 }

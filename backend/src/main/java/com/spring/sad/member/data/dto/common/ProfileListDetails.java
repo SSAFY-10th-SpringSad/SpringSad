@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public abstract class MemberProfileBody {
+public abstract class ProfileListDetails {
     protected long memberId;
     @JsonProperty("profiles")
-    protected List<MemberProfileDetails> memberProfileDetailsList = new ArrayList<>();
+    protected List<ProfileDetails> profileDetailsList = new ArrayList<>();
 }
 

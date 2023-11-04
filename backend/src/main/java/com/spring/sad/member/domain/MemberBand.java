@@ -48,4 +48,14 @@ public class MemberBand {
         this.profile = profile;
         profile.getMemberBands().add(this);
     }
+
+    private void removeRelateProfile() {
+        if (this.profile != null)
+            this.profile.getMemberBands().remove(this);
+    }
+
+    public void changeProfile(Profile profile) {
+        removeRelateProfile();
+        addRelateProfile(profile);
+    }
 }

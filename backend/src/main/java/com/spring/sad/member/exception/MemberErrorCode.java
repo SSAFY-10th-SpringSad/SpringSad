@@ -14,7 +14,7 @@ public enum MemberErrorCode implements ErrorCode {
 
     LOGIN_FAILED(400, "MEMBER_06", "아이디가 존재하지 않거나 잘못된 비밀 번호 입니다."),
 
-    MEMBER_DOES_NOT_EXISTS(400, "MEBER_07", "존재하지 않는 회원입니다.");
+    MEMBER_DOES_NOT_EXISTS(400, "MEMBER_07", "존재하지 않는 회원입니다.");
 
 
     private final int statusCode;

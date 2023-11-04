@@ -7,12 +7,12 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Getter
-public class ProfileBandDetails {
+public class BandDetails {
     private long bandId;
     private String bandName;
     private String bandImg;
-    public static ProfileBandDetails from(Band band) {
-        return ProfileBandDetails.builder()
+    public static BandDetails from(Band band) {
+        return BandDetails.builder()
                 .bandId(band.getId())
                 .bandName(band.getBandName())
                 .bandImg(band.getBandCover())
